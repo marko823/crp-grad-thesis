@@ -3,10 +3,12 @@
  */
 
 import {Component} from '@angular/core';
+import {ProjectFormComponent} from "./project-form.component";
 
 @Component({
     selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1>'
+    template: '<project-form></project-form>',
+    directives: [ProjectFormComponent]
 })
 export class AppComponent {
 }
