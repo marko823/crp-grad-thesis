@@ -4,6 +4,7 @@ export class Project{
 
     //TODO
     // array of tech used on project
+    // check
     constructor(
         public id: number,
         public name: string,
