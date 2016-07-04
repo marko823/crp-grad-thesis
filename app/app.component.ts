@@ -10,6 +10,7 @@ import {ProjectFormComponent} from "./project-form.component";
     template: '<project-form></project-form>',
     directives: [ProjectFormComponent]
 })
+
 export class AppComponent {
 }
 
