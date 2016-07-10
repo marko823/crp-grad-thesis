@@ -2,6 +2,8 @@
  * Created by martina on 7/3/16.
  */
 
+import {EmployeePosition} from "./employee-position";
+
 export class Employee{
 
     //TODO
@@ -10,6 +12,8 @@ export class Employee{
         public id: number,
         public fullName: string,
         public email: string,
+        public mobileNo: string,
+        public position: EmployeePosition,
         public dateOfEmployment: Date
     ) {  }
 

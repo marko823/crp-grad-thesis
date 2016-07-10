@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NgForm}    from '@angular/common';
 import {Employee} from "../../shared/model/employee";
+import {EmployeePosition} from "../../shared/model/employee-position";
 
 @Component({
     moduleId: module.id,
@@ -10,7 +11,7 @@ import {Employee} from "../../shared/model/employee";
 export class EmployeeFormComponent {
 
 
-    model = new Employee(1, "Marta K.", "marta@gmail.com", new Date());
+    model = new Employee(1, "Marta K.", "marta@gmail.com", "078446508", new EmployeePosition(1, "dev"), new Date());
 
     submitted = false;
     active = true;
@@ -18,7 +19,7 @@ export class EmployeeFormComponent {
     onSubmit() {
         this.submitted = true;
 
-        this.model = new Employee(1, "", "", new Date());
+        this.model = new Employee(1, "", "", "", new EmployeePosition(1, ""), new Date());
         this.active = false;
         setTimeout(()=>this.active = true, 0);
 
@@ -35,7 +36,7 @@ export class EmployeeFormComponent {
     newEmployee() {
 
         this.submitted = false;
-        this.model = new Employee(1, "", "", new Date());
+        this.model = new Employee(1, "", "", "", new EmployeePosition(1, ""), new Date());
         this.active = false;
         setTimeout(()=>this.active = true, 0);
 

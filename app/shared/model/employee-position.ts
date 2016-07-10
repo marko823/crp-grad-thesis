@@ -2,7 +2,7 @@
  * Created by martina on 7/3/16.
  */
 
-export class Position{
+export class EmployeePosition{
     
     constructor(
         public id: number,
