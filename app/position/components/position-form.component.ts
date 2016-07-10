@@ -5,7 +5,8 @@ import {EmployeePosition} from "../../shared/model/employee-position";
 @Component({
     moduleId: module.id,
     selector: 'position-form',
-    templateUrl: 'position-form.component.html'
+    templateUrl: 'position-form.component.html',
+    styles: ['.container { width: 40%; float: left; }']
 })
 
 export class PositionFormComponent {

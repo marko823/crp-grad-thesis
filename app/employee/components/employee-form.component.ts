@@ -8,6 +8,7 @@ import {SELECT_DIRECTIVES} from 'ng2-select/ng2-select';
     moduleId: module.id,
     selector: 'employee-form',
     templateUrl: 'employee-form.component.html',
+    styles: ['.container { width: 40%; float: left; }'],
     directives: [SELECT_DIRECTIVES]
 })
 export class EmployeeFormComponent {

@@ -23,6 +23,7 @@
                    [(ngModel)]="model.mobileNo" name="mobileNo">
         </div>
 
+        <!--TODO: can this be binded with ngModel?-->
         <div class="form-group">
             <label for="employeePosition">Employee Position</label>
             <ng-select [items]="employeePositionItems" (selected)="selected($event)">

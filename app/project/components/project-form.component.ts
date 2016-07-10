@@ -6,7 +6,8 @@ import {Employee} from "../../shared/model/employee";
 @Component({
     moduleId: module.id,
     selector: 'project-form',
-    templateUrl: 'project-form.component.html'
+    templateUrl: 'project-form.component.html',
+    styles: ['.container { width: 40%; float: left; }']
 })
 export class ProjectFormComponent {
 
