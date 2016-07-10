@@ -1,7 +1,4 @@
 import {Component} from "@angular/core";
-/**
- * Created by martina on 7/4/16.
- */
 
 @Component({
     selector: 'dashboard',

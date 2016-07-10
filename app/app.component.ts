@@ -10,8 +10,10 @@ import {ROUTER_DIRECTIVES} from "@angular/router";
     template: `<h1>Component Router</h1>
                 <nav>
                     <a [routerLink]="['/dashboard']">Dashboard</a>
-                    <a [routerLink]="['/add-project']">Add project</a>
-                    <a [routerLink]="['/add-employee']">Add empoloyee</a>
+                    <!--<a [routerLink]="['/add-project']">Add project</a>-->
+                    <a [routerLink]="['/project']">Project view</a>
+                    <!--<a [routerLink]="['/add-employee']">Add empoloyee</a>-->
+                    <a [routerLink]="['/employee']">Employee view</a>
                 </nav>
                <router-outlet></router-outlet>`,
     directives: [ROUTER_DIRECTIVES]

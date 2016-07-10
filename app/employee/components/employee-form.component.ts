@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
 import {NgForm}    from '@angular/common';
-import {Employee} from "./employee";
+import {Employee} from "../../shared/model/employee";
 
 @Component({
+    moduleId: module.id,
     selector: 'employee-form',
-    templateUrl: 'app/employee-form.component.html'
+    templateUrl: 'employee-form.component.html'
 })
 export class EmployeeFormComponent {
 

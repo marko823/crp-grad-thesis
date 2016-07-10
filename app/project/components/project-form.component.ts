@@ -1,11 +1,12 @@
 import {Component} from '@angular/core';
 import {NgForm}    from '@angular/common';
-import {Project}    from './project';
-import {Employee} from "./employee";
+import {Project}    from '../../shared/model/project';
+import {Employee} from "../../shared/model/employee";
 
 @Component({
+    moduleId: module.id,
     selector: 'project-form',
-    templateUrl: 'app/project-form.component.html'
+    templateUrl: 'project-form.component.html'
 })
 export class ProjectFormComponent {
 
