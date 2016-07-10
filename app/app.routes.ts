@@ -5,6 +5,7 @@ import {EmployeeComponent} from "./employee/components/employee.component";
 import {PositionComponent} from "./position/components/position.component";
 
 export const routes:RouterConfig = [
+    {path: '', component: DashboardComponent},
     {path: 'dashboard', component: DashboardComponent},
     {path: 'project', component: ProjectComponent},
     {path: 'employee', component: EmployeeComponent},

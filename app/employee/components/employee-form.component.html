@@ -24,9 +24,9 @@
         </div>
 
         <div class="form-group">
-            <label for="position">Position</label>
-            <input type="text" class="form-control" required
-                   [(ngModel)]="model.position" name="position">
+            <label for="employeePosition">Employee Position</label>
+            <ng-select [items]="employeePositionItems" (selected)="selected($event)">
+            </ng-select>
         </div>
 
         <div class="form-group">

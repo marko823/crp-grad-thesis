@@ -13,7 +13,7 @@ export class Employee{
         public fullName: string,
         public email: string,
         public mobileNo: string,
-        public position: EmployeePosition,
+        public employeePosition: EmployeePosition,
         public dateOfEmployment: Date
     ) {  }
 
