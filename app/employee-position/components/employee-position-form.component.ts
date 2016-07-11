@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm}    from '@angular/common';
 import {EmployeePosition} from "../../shared/model/employee-position";
+import {EmployeePositionService} from "../../shared/services/employee-position.service";
 
 @Component({
     moduleId: module.id,
@@ -9,29 +10,36 @@ import {EmployeePosition} from "../../shared/model/employee-position";
     styles: ['.container { width: 40%; float: left; }']
 })
 
-export class EmployeePositionFormComponent {
+export class EmployeePositionFormComponent implements OnInit {
 
+    employeePositions:Array<EmployeePosition>;
 
-    model = new EmployeePosition(1, "Frontend developer");
+    model = new EmployeePosition(1, "");
 
     submitted = false;
     active = true;
 
-    onSubmit() {
-        this.submitted = true;
+    constructor(private employeePositionService:EmployeePositionService) {
+    }
 
+    ngOnInit() {
+        this.employeePositions = this.employeePositionService.getEmployeePositions();
+        this.printEmployeePositions();
+
+    }
+
+    onSubmit() {
+
+        this.employeePositionService.addEmployeePosition(this.model);
+        this.employeePositions = this.employeePositionService.getEmployeePositions();
+
+        this.submitted = true;
         this.model = new EmployeePosition(1, "");
         this.active = false;
         setTimeout(()=>this.active = true, 0);
 
-        //TODO
-        // persist newly added employee-position data
+        this.printEmployeePositions();
 
-    }
-
-    // TODO: Remove this when we're done
-    get diagnostic() {
-        return JSON.stringify(this.model);
     }
 
     newEmployeePosition() {
@@ -42,4 +50,9 @@ export class EmployeePositionFormComponent {
         setTimeout(()=>this.active = true, 0);
 
     }
+
+    printEmployeePositions() {
+        console.log(this.employeePositions);
+    }
+
 }

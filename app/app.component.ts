@@ -4,6 +4,7 @@
 
 import {Component} from '@angular/core';
 import {ROUTER_DIRECTIVES} from "@angular/router";
+import {EmployeePositionService} from "./shared/services/employee-position.service";
 
 @Component({
     selector: 'my-app',
@@ -15,7 +16,8 @@ import {ROUTER_DIRECTIVES} from "@angular/router";
                     <a [routerLink]="['/employee-position']">Employee Position view</a>
                 </nav>
                <router-outlet></router-outlet>`,
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES],
+    providers: [EmployeePositionService]
 })
 
 export class AppComponent {
