@@ -1,8 +1,10 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm}    from '@angular/common';
 import {Employee} from "../../shared/model/employee";
 import {EmployeePosition} from "../../shared/model/employee-position";
 import {SELECT_DIRECTIVES} from 'ng2-select/ng2-select';
+import {EmployeeService} from "../../shared/services/employee.service";
+import {EmployeePositionService} from "../../shared/services/employee-position.service";
 
 @Component({
     moduleId: module.id,
@@ -11,37 +13,39 @@ import {SELECT_DIRECTIVES} from 'ng2-select/ng2-select';
     styles: ['.container { width: 40%; float: left; }'],
     directives: [SELECT_DIRECTIVES]
 })
-export class EmployeeFormComponent {
+export class EmployeeFormComponent implements OnInit {
 
-    //TODO
-    //add lifecycle hook onInit
+    employees:Array<Employee>;
 
-    //TODO
-    //take values from backend
-    employeePosition:Array<EmployeePosition> =
-        [new EmployeePosition(1, "backend"), new EmployeePosition(1, "frontend")];
+    employeePosition:Array<EmployeePosition>;
+    employeePositionItems:Array<any>;
 
-
-    employeePositionItems:Array<any> = this.mapEmployeePositionsToSelectItems(this.employeePosition);
-    model = new Employee(1, "Marta K.", "marta@gmail.com", "078446508", new EmployeePosition(1, "dev"), new Date());
+    model = new Employee(1, "", "", "", new EmployeePosition(1, ""), new Date());
 
     submitted = false;
     active = true;
 
-    onSubmit() {
-        this.submitted = true;
+    constructor(private employeeService:EmployeeService, private employeePositionService:EmployeePositionService) {
+    }
 
+    ngOnInit() {
+        this.employeePosition = this.employeePositionService.getEmployeePositions();
+        this.employeePositionItems = this.mapEmployeePositionsToSelectItems(this.employeePosition);
+
+        this.employees = this.employeeService.getEmployees();
+        this.printEmployees();
+    }
+
+    onSubmit() {
+
+        this.employeeService.addEmployee(this.model);
+
+        this.submitted = true;
         this.model = new Employee(1, "", "", "", new EmployeePosition(1, ""), new Date());
         this.active = false;
         setTimeout(()=>this.active = true, 0);
 
-        //TODO
-        // persist newly added employee data
-    }
-
-    // TODO: Remove this when we're done
-    get diagnostic() {
-        return JSON.stringify(this.model);
+        this.printEmployees();
     }
 
     public selected(value:any):void {
@@ -66,5 +70,9 @@ export class EmployeeFormComponent {
         }
         return items;
 
+    }
+
+    printEmployees(){
+        console.log(this.employees);
     }
 }

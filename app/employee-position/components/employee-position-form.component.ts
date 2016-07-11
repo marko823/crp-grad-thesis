@@ -25,7 +25,6 @@ export class EmployeePositionFormComponent implements OnInit {
     ngOnInit() {
         this.employeePositions = this.employeePositionService.getEmployeePositions();
         this.printEmployeePositions();
-
     }
 
     onSubmit() {
