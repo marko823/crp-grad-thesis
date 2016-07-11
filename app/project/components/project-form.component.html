@@ -32,6 +32,14 @@
                    [(ngModel)]="model.realEndDate" name="realEndDate">
         </div>
 
+        <!--TODO: can this be binded with ngModel?-->
+        <div class="form-group">
+            <label for="employees">Employees</label>
+            <ng-select [items]="employeeItems" (selected)="selected($event)">
+            </ng-select>
+            <button type="button" class="btn btn-default" (click)="reset()" required>Reset</button>
+        </div>
+
         {{diagnostic}}
 
         <hr>
