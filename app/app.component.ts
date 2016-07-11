@@ -12,7 +12,7 @@ import {ROUTER_DIRECTIVES} from "@angular/router";
                     <a [routerLink]="['/dashboard']">Dashboard</a>
                     <a [routerLink]="['/project']">Project view</a>
                     <a [routerLink]="['/employee']">Employee view</a>
-                    <a [routerLink]="['/position']">Position view</a>
+                    <a [routerLink]="['/employee-position']">Employee Position view</a>
                 </nav>
                <router-outlet></router-outlet>`,
     directives: [ROUTER_DIRECTIVES]

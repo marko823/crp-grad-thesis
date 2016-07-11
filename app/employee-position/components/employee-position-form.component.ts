@@ -4,12 +4,12 @@ import {EmployeePosition} from "../../shared/model/employee-position";
 
 @Component({
     moduleId: module.id,
-    selector: 'position-form',
-    templateUrl: 'position-form.component.html',
+    selector: 'employee-position-form',
+    templateUrl: 'employee-position-form.component.html',
     styles: ['.container { width: 40%; float: left; }']
 })
 
-export class PositionFormComponent {
+export class EmployeePositionFormComponent {
 
 
     model = new EmployeePosition(1, "Frontend developer");
@@ -25,7 +25,7 @@ export class PositionFormComponent {
         setTimeout(()=>this.active = true, 0);
 
         //TODO
-        // persist newly added position data
+        // persist newly added employee-position data
 
     }
 
@@ -34,7 +34,7 @@ export class PositionFormComponent {
         return JSON.stringify(this.model);
     }
 
-    newPosition() {
+    newEmployeePosition() {
 
         this.submitted = false;
         this.model = new EmployeePosition(1, "");
