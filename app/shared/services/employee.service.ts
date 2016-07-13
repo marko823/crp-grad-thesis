@@ -13,5 +13,9 @@ export class EmployeeService {
     addEmployee(employee:Employee) {
         EMPLOYEES.push(employee);
     }
+    
+    getEmployee(id: number){
+        return EMPLOYEES[id];
+    }
 
 }
