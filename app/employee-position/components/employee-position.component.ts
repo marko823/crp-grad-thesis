@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {EmployeePositionFormComponent} from "./employee-position-form.component";
+import {EmployeePositionsListComponent} from "./employee-positions-list.component";
 
 @Component({
     moduleId: module.id,
@@ -7,8 +8,9 @@ import {EmployeePositionFormComponent} from "./employee-position-form.component"
     template: `
                 <h2>Employee position view</h2>
                 <employee-position-form></employee-position-form>
+                <employee-positions-list></employee-positions-list>
 `,
-    directives: [EmployeePositionFormComponent]
+    directives: [EmployeePositionFormComponent, EmployeePositionsListComponent]
 })
 
 export class EmployeePositionComponent {
