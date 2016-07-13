@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ProjectFormComponent} from "./project-form.component";
+import {ProjectsListComponent} from "./projects-list.component";
 
 @Component({
     moduleId: module.id,
@@ -7,8 +8,9 @@ import {ProjectFormComponent} from "./project-form.component";
     template: `
                 <h2>Project view</h2>
                 <project-form></project-form>
+                <projects-list></projects-list>
 `,
-    directives: [ProjectFormComponent]
+    directives: [ProjectFormComponent, ProjectsListComponent]
 })
 
 export class ProjectComponent {
