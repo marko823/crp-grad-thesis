@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Project Form</h1>
+    <h4>Project Form</h4>
     <form *ngIf="active" (ngSubmit)="onSubmit()" #projectForm="ngForm">
         <div class="form-group">
             <label for="name">Name</label>
@@ -46,10 +46,6 @@
 
         <button type="button" class="btn btn-default" (click)="newProject()" required>New Project</button>
         <button type="submit" class="btn btn-default" [disabled]="!projectForm.valid" required>Submit</button>
-
-        <hr>
-
-        submitted: {{submitted}}
 
         <hr>
 

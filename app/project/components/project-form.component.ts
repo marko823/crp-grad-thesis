@@ -1,96 +1,73 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForm, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES}    from '@angular/common';
 import {Project}    from '../../shared/model/project';
 import {Employee} from "../../shared/model/employee";
-import {EmployeePosition} from "../../shared/model/employee-position";
 import {SELECT_DIRECTIVES} from "ng2-select/ng2-select";
 import {ProjectService} from "../../shared/services/project.service";
 import {EmployeeService} from "../../shared/services/employee.service";
+import {UtilityService} from "../../shared/services/utility.service";
 
 
 @Component({
     moduleId: module.id,
     selector: 'project-form',
     templateUrl: 'project-form.component.html',
-    styles: ['.container { width: 40%; float: left; }'],
+    styleUrls: ['project-form.component.css'],
     directives: [SELECT_DIRECTIVES]
 })
 export class ProjectFormComponent implements OnInit {
 
-    //TODO
-    // id is hardcoded, change
-    // change date pick
+    model:Project;
 
     employees:Array<Employee>;
     employeeItems:Array<any>;
-    
+
     projects:Array<Project>;
 
-    model = new Project(1, '', new Date(), new Date(), new Date(), new Date(), []);
-
-    submitted = false;
     active = true;
 
-    constructor(private employeeService:EmployeeService, private projectService: ProjectService) {
-    }
-    
-    ngOnInit(){
-        this.employees = this.employeeService.getEmployees();
-        this.employeeItems = this.mapEmployeesToSelectItems(this.employees); 
-        this.projects = this.projectService.getProjects();
-        this.printProjects();
+    constructor(private employeeService:EmployeeService,
+                private projectService:ProjectService,
+                private utilityService:UtilityService) {
     }
 
+    ngOnInit() {
+        this.model = this.utilityService.emptyProject();
+        this.employees = this.employeeService.getEmployees();
+        this.employeeItems = this.utilityService.mapEmployeesToSelectItems(this.employees);
+        this.projects = this.projectService.getProjects();
+    }
 
     onSubmit() {
-        
         this.projectService.addProject(this.model);
-        this.printProjects();
-        
-        this.submitted = true;
-        this.model = new Project(1, '', new Date(), new Date(), new Date(), new Date(), new Array<Employee>());
+
+        this.model = this.utilityService.emptyProject();
         this.active = false;
         setTimeout(()=>this.active = true, 0);
-
     }
 
     public selected(value:any):void {
         this.model.employees.push(this.employees[value.id - 1]);
         this.employees.splice(value.id - 1, 1);
-        this.employeeItems = this.mapEmployeesToSelectItems(this.employees);
-
+        this.employeeItems = this.utilityService.mapEmployeesToSelectItems(this.employees);
     }
 
-    public reset(){
-
-        this.employees = [new Employee(1, "Marta K.", "marta@gmail.com", "078446508", new EmployeePosition(1, "dev"), new Date()),
-            new Employee(2, "Nekoj drug K.", "marta@gmail.com", "078446508", new EmployeePosition(1, "dev"), new Date()),
-            new Employee(3, "Nekoj drug K.", "marta@gmail.com", "078446508", new EmployeePosition(1, "dev"), new Date())];
-
-        this.employeeItems = this.mapEmployeesToSelectItems(this.employees);
-        this.model.employees = new Array<Employee>();
-
+    public reset() {
+        this.employees = this.employeeService.getEmployees();
+        this.employeeItems = this.utilityService.mapEmployeesToSelectItems(this.employees);
+        this.model.employees = [];
     }
 
     newProject() {
-
-        this.submitted = false;
-        this.model = new Project(1, '', new Date(), new Date(), new Date(), new Date(), new Array<Employee>());
+        this.model = this.utilityService.emptyProject();
         this.active = false;
         setTimeout(()=>this.active = true, 0);
-
     }
 
-    mapEmployeesToSelectItems(employees:Array<Employee>) {
-        var items:Array<any> = [];
-
-        for (var i = 0; i < employees.length; i++) {
-            items.push({id: i + 1, text: employees[i].fullName});
-        }
-        return items;
-    }
-    
-    printProjects(){
+    printProjects() {
         console.log(this.projects);
+    }
+
+    printModel() {
+        console.log(this.model);
     }
 }

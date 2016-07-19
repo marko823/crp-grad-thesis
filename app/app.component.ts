@@ -7,6 +7,7 @@ import {ROUTER_DIRECTIVES} from "@angular/router";
 import {EmployeePositionService} from "./shared/services/employee-position.service";
 import {EmployeeService} from "./shared/services/employee.service";
 import {ProjectService} from "./shared/services/project.service";
+import {UtilityService} from "./shared/services/utility.service";
 
 @Component({
     selector: 'my-app',
@@ -19,7 +20,7 @@ import {ProjectService} from "./shared/services/project.service";
                 </nav>
                <router-outlet></router-outlet>`,
     directives: [ROUTER_DIRECTIVES],
-    providers: [EmployeePositionService, EmployeeService, ProjectService]
+    providers: [EmployeePositionService, EmployeeService, ProjectService, UtilityService]
 })
 
 export class AppComponent {
