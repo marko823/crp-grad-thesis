@@ -1,51 +1,50 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForm}    from '@angular/common';
 import {Employee} from "../../shared/model/employee";
 import {EmployeePosition} from "../../shared/model/employee-position";
 import {SELECT_DIRECTIVES} from 'ng2-select/ng2-select';
 import {EmployeeService} from "../../shared/services/employee.service";
 import {EmployeePositionService} from "../../shared/services/employee-position.service";
+import {UtilityService} from "../../shared/services/utility.service";
 
 @Component({
     moduleId: module.id,
     selector: 'employee-form',
     templateUrl: 'employee-form.component.html',
-    styles: ['.container { width: 40%; float: left; }'],
+    styleUrls: ['employee-form.component.css'],
     directives: [SELECT_DIRECTIVES]
 })
 export class EmployeeFormComponent implements OnInit {
+
+    model:Employee;
 
     employees:Array<Employee>;
 
     employeePosition:Array<EmployeePosition>;
     employeePositionItems:Array<any>;
 
-    model = new Employee(1, "", "", "", new EmployeePosition(1, ""), new Date());
 
     submitted = false;
     active = true;
 
-    constructor(private employeeService:EmployeeService, private employeePositionService:EmployeePositionService) {
+    constructor(private employeeService:EmployeeService,
+                private employeePositionService:EmployeePositionService,
+                private utilityService:UtilityService) {
     }
 
     ngOnInit() {
+        this.model = this.utilityService.emptyEmployee();
         this.employeePosition = this.employeePositionService.getEmployeePositions();
-        this.employeePositionItems = this.mapEmployeePositionsToSelectItems(this.employeePosition);
-
+        this.employeePositionItems = this.utilityService.mapEmployeePositionsToSelectItems(this.employeePosition);
         this.employees = this.employeeService.getEmployees();
-        this.printEmployees();
     }
 
     onSubmit() {
 
         this.employeeService.addEmployee(this.model);
-
         this.submitted = true;
-        this.model = new Employee(1, "", "", "", new EmployeePosition(1, ""), new Date());
+        this.model = this.utilityService.emptyEmployee();
         this.active = false;
         setTimeout(()=>this.active = true, 0);
-
-        this.printEmployees();
     }
 
     public selected(value:any):void {
@@ -56,23 +55,13 @@ export class EmployeeFormComponent implements OnInit {
     newEmployee() {
 
         this.submitted = false;
-        this.model = new Employee(1, "", "", "", new EmployeePosition(1, ""), new Date());
+        this.model = this.utilityService.emptyEmployee();
         this.active = false;
         setTimeout(()=>this.active = true, 0);
 
     }
 
-    mapEmployeePositionsToSelectItems(employeePositions:Array<EmployeePosition>) {
-
-        var items : Array<any> = [];
-        for (var employeePosition of employeePositions) {
-            items.push({id:employeePosition.id, text:employeePosition.name});
-        }
-        return items;
-
-    }
-
-    printEmployees(){
+    printEmployees() {
         console.log(this.employees);
     }
 }

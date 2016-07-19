@@ -4,6 +4,7 @@
 import {Injectable} from '@angular/core';
 import {Employee} from "../model/employee";
 import {Project} from "../model/project";
+import {EmployeePosition} from "../model/employee-position";
 
 @Injectable()
 export class UtilityService {
@@ -16,9 +17,23 @@ export class UtilityService {
         }
         return items;
     }
+
+    mapEmployeePositionsToSelectItems(employeePositions:Array<EmployeePosition>) {
+
+        var items : Array<any> = [];
+        for (var employeePosition of employeePositions) {
+            items.push({id:employeePosition.id, text:employeePosition.name});
+        }
+        return items;
+
+    }
     
     emptyProject(){
-        return new Project(1, '', new Date(), new Date(), new Date(), new Date(), []);
+        return new Project(1, "", new Date(), new Date(), new Date(), new Date(), []);
+    }
+    
+    emptyEmployee(){
+        return new Employee(1, "", "", "", new EmployeePosition(1, ""), new Date())
     }
 
 
