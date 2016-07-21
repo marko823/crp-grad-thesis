@@ -4,7 +4,7 @@ import {ElementRef, Directive, HostListener, Input} from "@angular/core";
 export class HighlightDirective {
 
     private el:HTMLElement;
-    private defaultColor = "blue";
+    private defaultColor = "#f6f7f7";
 
     @Input('myHighlight')
     highlightColor:string;

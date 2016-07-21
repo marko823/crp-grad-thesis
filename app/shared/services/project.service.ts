@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {Project} from "../model/project";
 import {PROJECTS} from "../model/mock-projects";
 
@@ -12,6 +12,10 @@ export class ProjectService {
 
     addProject(project: Project){
         PROJECTS.push(project);
+    }
+
+    removeProject(index:number) {
+        PROJECTS.splice(index, 1);
     }
 
 

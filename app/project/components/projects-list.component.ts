@@ -1,24 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {EmployeePositionItemComponent} from "./employee-position-item.component";
-import {EmployeePosition} from "../../shared/model/employee-position";
-import {EmployeePositionService} from "../../shared/services/employee-position.service";
+import {Component, OnInit} from "@angular/core";
 import {Project} from "../../shared/model/project";
 import {ProjectService} from "../../shared/services/project.service";
 import {ProjectItemComponent} from "./project-item.component";
+import {HighlightDirective} from "../../shared/directives/highlight.directive";
+import {COMMON_DIRECTIVES} from "@angular/common";
+import {DND_DIRECTIVES} from "ng2-dnd/ng2-dnd";
 
 @Component({
-
+    moduleId: module.id,
     selector: 'projects-list',
-    template: `
-        <h3>Projects list</h3>
-        
-        <ul class="projects">
-          <li *ngFor="let project of projects">
-            <project-item [project]="project"></project-item>
-          </li>
-        </ul>
-    `,
-    directives: [ProjectItemComponent]
+    templateUrl: 'projects-list.component.html',
+    directives: [ProjectItemComponent, HighlightDirective, COMMON_DIRECTIVES, DND_DIRECTIVES]
 })
 export class ProjectsListComponent implements OnInit {
 
@@ -29,6 +21,10 @@ export class ProjectsListComponent implements OnInit {
 
     ngOnInit() {
         this.projects = this.projectService.getProjects();
+    }
+
+    removeProject(index:number) {
+        this.projectService.removeProject(index);
     }
 
 }
