@@ -9,17 +9,18 @@ import {HighlightDirective} from "../../shared/directives/highlight.directive";
         <div class="project-item" [myHighlight]>
             {{project.name}}
             
-            <button class="btn btn-default btn-xs"
-                    (click)="removeProject()">remove</button>
+            <button class="btn btn-primary btn-sm" (click)="removeProject()">
+                del
+            </button>
         
         </div>
     `,
     styles: [`
         .project-item {
-            height: 22px;
+            height: 30px;
         }
         
-        .btn-default {
+        .btn-primary {
             float: right;
         }
     `],

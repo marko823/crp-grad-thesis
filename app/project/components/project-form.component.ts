@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Project}    from '../../shared/model/project';
+import {Component, OnInit} from "@angular/core";
+import {Project} from "../../shared/model/project";
 import {Employee} from "../../shared/model/employee";
 import {SELECT_DIRECTIVES} from "ng2-select/ng2-select";
 import {ProjectService} from "../../shared/services/project.service";
@@ -51,6 +51,8 @@ export class ProjectFormComponent implements OnInit {
         this.employeeItems = this.utilityService.mapEmployeesToSelectItems(this.employees);
     }
 
+    //TODO
+    //not functioning properly
     public reset() {
         this.employees = this.employeeService.getEmployees();
         this.employeeItems = this.utilityService.mapEmployeesToSelectItems(this.employees);
