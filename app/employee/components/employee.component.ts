@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component} from "@angular/core";
 import {EmployeeFormComponent} from "./employee-form.component";
 import {EmployeesListComponent} from "./employees-list.component";
 
@@ -6,9 +6,11 @@ import {EmployeesListComponent} from "./employees-list.component";
     moduleId: module.id,
     selector: 'employee',
     template: `
-                <h2>Employee view</h2>
+                <h3>Employees</h3>
+                <br>
                 <employee-form></employee-form>
                 <employees-list></employees-list>
+                
 `,
     directives: [EmployeeFormComponent, EmployeesListComponent]
 })

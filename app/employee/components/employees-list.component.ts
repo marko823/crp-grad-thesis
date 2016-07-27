@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {EmployeeService} from "../../shared/services/employee.service";
 import {Employee} from "../../shared/model/employee";
 import {EmployeeItemComponent} from "./employee-item.component";
@@ -10,11 +10,11 @@ import {EmployeeItemComponent} from "./employee-item.component";
             
         <h3>Employees List</h3>
         
-        <ul class="employees">
-          <li *ngFor="let employee of employees">
+        <div class="employees">
+          <div *ngFor="let employee of employees">
             <employee-item [employee]="employee"></employee-item>
-          </li>
-        </ul>
+          </div>
+        </div>
         
     `,
     directives: [EmployeeItemComponent]

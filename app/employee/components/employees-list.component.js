@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var employee_service_1 = require("../../shared/services/employee.service");
 var employee_item_component_1 = require("./employee-item.component");
 var EmployeesListComponent = (function () {
@@ -21,7 +21,7 @@ var EmployeesListComponent = (function () {
     EmployeesListComponent = __decorate([
         core_1.Component({
             selector: 'employees-list',
-            template: "\n            \n        <h3>Employees List</h3>\n        \n        <ul class=\"employees\">\n          <li *ngFor=\"let employee of employees\">\n            <employee-item [employee]=\"employee\"></employee-item>\n          </li>\n        </ul>\n        \n    ",
+            template: "\n            \n        <h3>Employees List</h3>\n        \n        <div class=\"employees\">\n          <div *ngFor=\"let employee of employees\">\n            <employee-item [employee]=\"employee\"></employee-item>\n          </div>\n        </div>\n        \n    ",
             directives: [employee_item_component_1.EmployeeItemComponent]
         }), 
         __metadata('design:paramtypes', [employee_service_1.EmployeeService])

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component} from "@angular/core";
 import {EmployeePositionFormComponent} from "./employee-position-form.component";
 import {EmployeePositionsListComponent} from "./employee-positions-list.component";
 
@@ -6,7 +6,8 @@ import {EmployeePositionsListComponent} from "./employee-positions-list.componen
     moduleId: module.id,
     selector: 'employee-position',
     template: `
-                <h2>Employee position view</h2>
+                <h3>Employee positions</h3>
+                <br>
                 <employee-position-form></employee-position-form>
                 <employee-positions-list></employee-positions-list>
 `,

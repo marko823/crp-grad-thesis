@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component} from "@angular/core";
 import {ProjectFormComponent} from "./project-form.component";
 import {ProjectsListComponent} from "./projects-list.component";
 
@@ -6,7 +6,8 @@ import {ProjectsListComponent} from "./projects-list.component";
     moduleId: module.id,
     selector: 'project',
     template: `
-                <h2>Project view</h2>
+                <h3>Projects</h3>
+                <br>
                 <project-form></project-form>
                 <projects-list></projects-list>
 `,
