@@ -11,7 +11,7 @@ import {UtilityService} from "./shared/services/utility.service";
 
 @Component({
     selector: 'my-app',
-    template: `<nav class="navbar navbar-dark bg-primary">
+    template: `<nav class="navbar navbar-inverse">
                     <a class="navbar-brand" [routerLink]="['/dashboard']">Dashboard</a>
                     <a class="navbar-brand" [routerLink]="['/project']">Projects</a>
                     <a class="navbar-brand" [routerLink]="['/employee']">Employees</a>

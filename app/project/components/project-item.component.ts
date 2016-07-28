@@ -1,6 +1,7 @@
 import {Component, Input, EventEmitter, Output} from "@angular/core";
 import {Project} from "../../shared/model/project";
 import {HighlightDirective} from "../../shared/directives/highlight.directive";
+import {TimerWrapper} from "@angular/platform-browser-dynamic/src/facade/async";
 
 @Component({
 
@@ -9,8 +10,12 @@ import {HighlightDirective} from "../../shared/directives/highlight.directive";
         <div class="project-item" [myHighlight]>
             {{project.name}}
             
-            <button class="btn btn-primary btn-sm" (click)="removeProject()">
-                del
+            <button *ngIf="!showUndo" class="btn btn-default btn-sm" (click)="deletedPressed()">
+                <span class="glyphicon glyphicon-trash" aria-hidden="false"></span> del
+            </button>
+            
+            <button *ngIf="showUndo" class="btn btn-default btn-sm" (click)="undoPressed()">
+               <span class="glyphicon glyphicon-share-alt" aria-hidden="false"></span> undo
             </button>
         
         </div>
@@ -20,7 +25,7 @@ import {HighlightDirective} from "../../shared/directives/highlight.directive";
             height: 30px;
         }
         
-        .btn-primary {
+        .btn-default {
             float: right;
         }
     `],
@@ -33,8 +38,31 @@ export class ProjectItemComponent {
 
     @Output() removeProjectEmitter = new EventEmitter();
 
-    removeProject() {
-        this.removeProjectEmitter.emit(this.listIndex);
+    scheduledForDeletion:boolean;
+    showUndo:boolean;
+
+    constructor() {
+        this.scheduledForDeletion = false;
+        this.showUndo = false;
+    }
+
+    deletedPressed() {
+
+        this.scheduledForDeletion = true;
+        this.showUndo = true;
+
+        TimerWrapper.setTimeout(() => {
+            if (this.scheduledForDeletion) {
+                this.removeProjectEmitter.emit(this.listIndex);
+            }
+        }, 5000);
+
+
+    }
+
+    undoPressed() {
+        this.scheduledForDeletion = false;
+        this.showUndo = false;
     }
 
 }
