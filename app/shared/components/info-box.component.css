@@ -1,0 +1,17 @@
+.bg-info {
+    height: 50px;
+    align-content: center;
+    padding-top: 13px;
+}
+
+.inline {
+    display: inline;
+}
+
+span.glyphicon-info-sign {
+    font-size: 2.0em;
+}
+
+span.glyphicon-remove {
+    font-size: 2.0em;
+}

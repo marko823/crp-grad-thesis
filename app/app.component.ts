@@ -8,6 +8,7 @@ import {EmployeePositionService} from "./shared/services/employee-position.servi
 import {EmployeeService} from "./shared/services/employee.service";
 import {ProjectService} from "./shared/services/project.service";
 import {UtilityService} from "./shared/services/utility.service";
+import {GlobalService} from "./shared/services/global.service";
 
 @Component({
     selector: 'my-app',
@@ -19,7 +20,7 @@ import {UtilityService} from "./shared/services/utility.service";
                 </nav>
                <router-outlet></router-outlet>`,
     directives: [ROUTER_DIRECTIVES],
-    providers: [EmployeePositionService, EmployeeService, ProjectService, UtilityService]
+    providers: [EmployeePositionService, EmployeeService, ProjectService, UtilityService, GlobalService]
 })
 
 export class AppComponent {
