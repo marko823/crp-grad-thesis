@@ -45,4 +45,10 @@ export class ProjectFormComponent {
         this.active = false;
         setTimeout(()=>this.active = true, 0);
     }
+
+    updateEmployees(employees:any) {
+
+        this.employees = this.utilityService.buildEmployeeArray(employees.toArray());
+
+    }
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, Input, OnInit, Output, EventEmitter} from "@angular/core";
 import {SELECT_DIRECTIVES} from "ng2-select/ng2-select";
 import {SelectedItemComponent} from "./selected-item.component";
 import Immutable = require('immutable');
@@ -24,6 +24,9 @@ export class MultipleSelectionComponent implements OnInit {
     @Input()
     items:any;
 
+    @Output()
+    changeSelectedItems = new EventEmitter();
+
     initialItems:any;
     selectedItems:any;
 
@@ -31,18 +34,21 @@ export class MultipleSelectionComponent implements OnInit {
     ngOnInit() {
         this.initialItems = this.items;
         this.selectedItems = Immutable.fromJS([]);
+        this.changeSelectedItems.emit(this.selectedItems);
     }
 
     selectItem(optionItem:any) {
 
-        this.selectedItems = this.selectedItems.push(optionItem.text);
         this.removeItem(optionItem.text);
+        this.selectedItems = this.selectedItems.push(optionItem.text);
+        this.changeSelectedItems.emit(this.selectedItems);
 
     }
 
     resetSelect() {
         this.items = this.initialItems;
         this.selectedItems = Immutable.fromJS([]);
+        this.changeSelectedItems.emit(this.selectedItems);
     }
 
     removeItem(text:string) {

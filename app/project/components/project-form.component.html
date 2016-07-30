@@ -34,7 +34,8 @@
 
         <div class="form-group">
 
-            <multiple-selection [itemsName]="'Employees'" [items]="employeeItems"></multiple-selection>
+            <multiple-selection [itemsName]="'Employees'" [items]="employeeItems"
+                                (changeSelectedItems)="updateEmployees($event)"></multiple-selection>
 
         </div>
 
