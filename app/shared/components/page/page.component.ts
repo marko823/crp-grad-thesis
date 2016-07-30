@@ -1,4 +1,4 @@
-import {GlobalService} from "../services/global.service";
+import {GlobalService} from "../../services/global.service";
 
 export class PageComponent {
 

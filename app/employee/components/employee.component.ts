@@ -1,9 +1,9 @@
 import {Component} from "@angular/core";
 import {EmployeeFormComponent} from "./employee-form.component";
 import {EmployeesListComponent} from "./employees-list.component";
-import {InfoBoxComponent} from "../../shared/components/info-box.component";
+import {InfoBoxComponent} from "../../shared/components/info-box/info-box.component";
 import {GlobalService} from "../../shared/services/global.service";
-import {PageComponent} from "../../shared/components/page.component";
+import {PageComponent} from "../../shared/components/page/page.component";
 
 @Component({
     moduleId: module.id,

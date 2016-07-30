@@ -33,12 +33,9 @@
         </div>
 
         <div class="form-group">
-            <label for="employees">Employees</label>
-            <ng-select id="employees" placeholder="select employees"
-                       [items]="employeeItems" (selected)="selected($event)">
-            </ng-select>
-            <br>
-            <button type="button" class="btn btn-default" (click)="reset()" required>Reset</button>
+
+            <multiple-selection [itemsName]="'Employees'" [items]="employeeItems"></multiple-selection>
+
         </div>
 
         <hr>

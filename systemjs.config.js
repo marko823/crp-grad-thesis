@@ -12,7 +12,9 @@
         'ng2-select':                 'node_modules/ng2-select',
         'ng2-bootstrap':              'node_modules/ng2-bootstrap',
         'moment': 'node_modules/moment/moment.js',
-        'ng2-dnd': 'node_modules/ng2-dnd'
+        'ng2-dnd': 'node_modules/ng2-dnd',
+        'immutable': 'node_modules/immutable/dist/immutable.js',
+        
     };
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {

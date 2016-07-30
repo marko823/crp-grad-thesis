@@ -1,10 +1,11 @@
 /**
  * Created by martina on 7/19/16.
  */
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {Employee} from "../model/employee";
 import {Project} from "../model/project";
 import {EmployeePosition} from "../model/employee-position";
+import Immutable = require('immutable');
 
 @Injectable()
 export class UtilityService {
@@ -13,9 +14,9 @@ export class UtilityService {
         var items:Array<any> = [];
 
         for (var i = 0; i < employees.length; i++) {
-            items.push({id: i + 1, text: employees[i].fullName});
+            items.push(employees[i].fullName);
         }
-        return items;
+        return Immutable.fromJS(items);
     }
 
     mapEmployeePositionsToSelectItems(employeePositions:Array<EmployeePosition>) {

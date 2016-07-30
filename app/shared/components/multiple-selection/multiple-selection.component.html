@@ -1,0 +1,16 @@
+<label>{{itemsName}}</label>
+
+<ng-select [items]="items.toArray()" (selected)="selectItem($event)">
+</ng-select>
+
+<br>
+
+<button type="button" class="btn btn-default" (click)="resetSelect()" required>Reset</button>
+
+<div class="selected-items">
+
+    <div *ngFor="let selectedItem of selectedItems.toArray()">
+        <selected-item [value]="selectedItem" (removeSelectedItem)="removeSelectedItem($event)"></selected-item>
+    </div>
+
+</div>
