@@ -1,6 +1,5 @@
 import {Component} from "@angular/core";
 import {Project} from "../../shared/model/project";
-import {Employee} from "../../shared/model/employee";
 import {ProjectService} from "../../shared/services/project.service";
 import {EmployeeService} from "../../shared/services/employee.service";
 import {UtilityService} from "../../shared/services/utility.service";
@@ -17,7 +16,7 @@ import {MultipleSelectionComponent} from "../../shared/components/multiple-selec
 export class ProjectFormComponent {
 
     model:Project;
-    employees:Array<Employee>;
+    employees;
     employeeItems:any;
 
     projects:Array<Project>;

@@ -12,12 +12,12 @@ import Immutable = require('immutable');
 export class UtilityService {
 
     mapEmployeesToSelectItems(employees:Array<Employee>) {
-        var items:Array<any> = [];
-
+        var items = Immutable.fromJS([]);
         for (var i = 0; i < employees.length; i++) {
-            items.push(employees[i].fullName);
+            let selectItemObj = {id: employees[i].id, text: employees[i].fullName};
+            items = items.push(selectItemObj);
         }
-        return Immutable.fromJS(items);
+        return items;
     }
 
     mapEmployeePositionsToSelectItems(employeePositions:Array<EmployeePosition>) {
@@ -35,14 +35,12 @@ export class UtilityService {
         let selectedEmployees = [];
         for (var j = 0; j < employeeNameArray.length; j++) {
 
-            for (var i = 0; i < EMPLOYEES.length; i++) {
-
-                if (EMPLOYEES[i]["fullName"] === employeeNameArray[j]) {
-                    selectedEmployees.push(EMPLOYEES[i]);
-                    break;
-                }
+            let id = employeeNameArray[j].id;
+            if (EMPLOYEES[id] != undefined) {
+                selectedEmployees.push(EMPLOYEES[id]);
             }
         }
+        console.log(selectedEmployees);
         return selectedEmployees;
     }
 

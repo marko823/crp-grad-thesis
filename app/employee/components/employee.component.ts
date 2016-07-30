@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, ViewChild} from "@angular/core";
 import {EmployeeFormComponent} from "./employee-form.component";
 import {EmployeesListComponent} from "./employees-list.component";
 import {InfoBoxComponent} from "../../shared/components/info-box/info-box.component";
@@ -13,14 +13,17 @@ import {PageComponent} from "../../shared/components/page/page.component";
                 <br>
                 <info-box [infoBoxShown]="showPageInfo()" [infoMessage]="pageInfo" 
                     (removeInfo)="removePageInfo()"></info-box>
-                <employee-form></employee-form>
-                <employees-list></employees-list>
+                <employee-form (employeeAdded)="addEmployeeToList($event)"></employee-form>
+                <employees-list #employeeList></employees-list>
                 
 `,
     directives: [InfoBoxComponent, EmployeeFormComponent, EmployeesListComponent]
 })
 
 export class EmployeeComponent extends PageComponent {
+
+    @ViewChild('employeeList')
+    employeeList;
 
     pageInfo = "This is the page for managing all of the current employees";
 
@@ -34,6 +37,10 @@ export class EmployeeComponent extends PageComponent {
 
     showPageInfo() {
         return this.globalService.getShowEmployeesInfoBox();
+    }
+
+    addEmployeeToList(employee:any) {
+        this.employeeList.employees.push(employee);
     }
 
 

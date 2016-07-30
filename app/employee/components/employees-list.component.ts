@@ -1,6 +1,5 @@
 import {Component, OnInit} from "@angular/core";
 import {EmployeeService} from "../../shared/services/employee.service";
-import {Employee} from "../../shared/model/employee";
 import {EmployeeItemComponent} from "./employee-item.component";
 
 @Component({
@@ -21,7 +20,7 @@ import {EmployeeItemComponent} from "./employee-item.component";
 })
 export class EmployeesListComponent implements OnInit {
 
-    employees:Array<Employee>;
+    employees;
 
     constructor(private employeeService:EmployeeService) {
     }

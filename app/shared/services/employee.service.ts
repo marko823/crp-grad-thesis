@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {EMPLOYEES} from "../model/mock-employees";
 import {Employee} from "../model/employee";
 
@@ -7,14 +7,15 @@ export class EmployeeService {
 
     //TODO: use promise
     getEmployees() {
-        return EMPLOYEES;
+        return Array.from(EMPLOYEES.values());
     }
 
     addEmployee(employee:Employee) {
-        EMPLOYEES.push(employee);
+        EMPLOYEES.set(EMPLOYEES.size + 1, employee);
+        console.log(EMPLOYEES);
     }
-    
-    getEmployee(id: number){
+
+    getEmployee(id:number) {
         return EMPLOYEES[id];
     }
 

@@ -39,8 +39,8 @@ export class MultipleSelectionComponent implements OnInit {
 
     selectItem(optionItem:any) {
 
-        this.removeItem(optionItem.text);
-        this.selectedItems = this.selectedItems.push(optionItem.text);
+        this.removeItem(optionItem.id);
+        this.selectedItems = this.selectedItems.push(optionItem);
         this.changeSelectedItems.emit(this.selectedItems);
 
     }
@@ -51,25 +51,27 @@ export class MultipleSelectionComponent implements OnInit {
         this.changeSelectedItems.emit(this.selectedItems);
     }
 
-    removeItem(text:string) {
+    removeItem(id:string) {
         let indexToRemove = undefined;
         for (var i = 0; i < this.items.size; i++) {
-            if (this.items.get(i) === text) {
+            if (this.items.get(i).id === id) {
                 indexToRemove = i;
             }
         }
         this.items = this.items.delete(indexToRemove);
     }
 
-    removeSelectedItem(text:string) {
+    removeSelectedItem(selectedItem:any) {
         let indexToRemove = undefined;
+        let itemToRemove = undefined;
         for (var i = 0; i < this.selectedItems.size; i++) {
-            if (this.selectedItems.get(i) === text) {
+            if (this.selectedItems.get(i).id === selectedItem.id) {
                 indexToRemove = i;
+                itemToRemove = this.selectedItems.get(i);
             }
         }
         this.selectedItems = this.selectedItems.delete(indexToRemove);
-        this.items = this.items.push(text);
+        this.items = this.items.push(itemToRemove);
     }
 
 }

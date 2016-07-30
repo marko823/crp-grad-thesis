@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from "@angular/core";
 import {Employee} from "../../shared/model/employee";
 import {EmployeePosition} from "../../shared/model/employee-position";
-import {SELECT_DIRECTIVES} from 'ng2-select/ng2-select';
+import {SELECT_DIRECTIVES} from "ng2-select/ng2-select";
 import {EmployeeService} from "../../shared/services/employee.service";
 import {EmployeePositionService} from "../../shared/services/employee-position.service";
 import {UtilityService} from "../../shared/services/utility.service";
@@ -15,9 +15,12 @@ import {UtilityService} from "../../shared/services/utility.service";
 })
 export class EmployeeFormComponent implements OnInit {
 
+    @Output()
+    employeeAdded = new EventEmitter();    
+
     model:Employee;
 
-    employees:Array<Employee>;
+    employees;
 
     employeePosition:Array<EmployeePosition>;
     employeePositionItems:Array<any>;
@@ -41,6 +44,7 @@ export class EmployeeFormComponent implements OnInit {
     onSubmit() {
 
         this.employeeService.addEmployee(this.model);
+        this.employeeAdded.emit(this.model);
         this.submitted = true;
         this.model = this.utilityService.emptyEmployee();
         this.active = false;

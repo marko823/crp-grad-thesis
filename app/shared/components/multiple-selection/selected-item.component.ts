@@ -5,7 +5,7 @@ import {Component, Input, Output, EventEmitter} from "@angular/core";
     selector: 'selected-item',
     template: `
 
-        <div>{{value}}<a (click)="removeSelectedItemHandler()"><span class="glyphicon glyphicon-remove"></span></a></div>
+        <div>{{value.text}}<a (click)="removeSelectedItemHandler()"><span class="glyphicon glyphicon-remove"></span></a></div>
 
         `
 })
@@ -19,6 +19,7 @@ export class SelectedItemComponent {
     removeSelectedItem = new EventEmitter();
 
     removeSelectedItemHandler() {
+        console.log(this.value);
         this.removeSelectedItem.emit(this.value);
     }
 
