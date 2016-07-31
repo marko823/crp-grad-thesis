@@ -1,0 +1,46 @@
+<div class="col-md-8">
+    <h3>Projects list</h3>
+
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>Name
+                <sort-buttons [sortProperty]="'name'"
+                              (ascendingOrder)="ascSort($event)" (descendingOrder)="descSort($event)">
+                </sort-buttons>
+            </th>
+            <th>Real begin date
+                <sort-buttons [sortProperty]="'realBeginDate'"
+                              (ascendingOrder)="ascSort($event)" (descendingOrder)="descSort($event)">
+                </sort-buttons>
+            </th>
+            <th>Real end date
+                <sort-buttons [sortProperty]="'realEndDate'"
+                              (ascendingOrder)="ascSort($event)" (descendingOrder)="descSort($event)">
+                </sort-buttons>
+            </th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody dnd-sortable-container
+               [sortableData]="projects"
+               [dropZones]="['delete-dropZone']"
+               class="projects">
+
+        <tr *ngFor="let project of projects; let i = index"
+            dnd-sortable [sortableIndex]="i" myHighlight>
+
+            <td>{{project.name}}</td>
+            <td>{{project.realBeginDate | date}}</td>
+            <td>{{project.realEndDate | date}}</td>
+            <td>
+                <delete-undo-button (proceedDeletionEmitter)="removeProject(i)"></delete-undo-button>
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+
+
+</div>

@@ -5,12 +5,11 @@ import {PROJECTS} from "../model/mock-projects";
 @Injectable()
 export class ProjectService {
 
-    //TODO: use promise
-    getProjects(){
+    getProjects() {
         return PROJECTS;
     }
 
-    addProject(project: Project){
+    addProject(project:Project) {
         PROJECTS.push(project);
     }
 
@@ -18,5 +17,34 @@ export class ProjectService {
         PROJECTS.splice(index, 1);
     }
 
+    sortedProjects(sortProperty:string, order:string) {
+
+        let sortedProjects = PROJECTS;
+
+        if (order === 'asc') {
+            sortedProjects.sort((a, b) => {
+                if (a[sortProperty] < b[sortProperty]) {
+                    return -1;
+                } else if (a[sortProperty] > b[sortProperty]) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            });
+        }
+        else {
+            sortedProjects.sort((a, b) => {
+                if (a[sortProperty] < b[sortProperty]) {
+                    return 1;
+                } else if (a[sortProperty] > b[sortProperty]) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+        }
+        return sortedProjects;
+
+    }
 
 }

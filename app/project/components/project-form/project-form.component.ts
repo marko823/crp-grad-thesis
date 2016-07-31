@@ -1,9 +1,9 @@
 import {Component} from "@angular/core";
-import {Project} from "../../shared/model/project";
-import {ProjectService} from "../../shared/services/project.service";
-import {EmployeeService} from "../../shared/services/employee.service";
-import {UtilityService} from "../../shared/services/utility.service";
-import {MultipleSelectionComponent} from "../../shared/components/multiple-selection/multiple-selection.component";
+import {Project} from "../../../shared/model/project";
+import {ProjectService} from "../../../shared/services/project.service";
+import {EmployeeService} from "../../../shared/services/employee.service";
+import {UtilityService} from "../../../shared/services/utility.service";
+import {MultipleSelectionComponent} from "../../../shared/components/multiple-selection/multiple-selection.component";
 
 
 @Component({
