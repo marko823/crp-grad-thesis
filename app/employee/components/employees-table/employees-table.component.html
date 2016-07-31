@@ -1,0 +1,32 @@
+<div class="col-md-8">
+    <h3>Employees</h3>
+
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>Full name
+                <sort-buttons [sortProperty]="'fullName'"
+                              (ascendingOrder)="ascSort($event)" (descendingOrder)="descSort($event)">
+                </sort-buttons>
+            </th>
+            <th>Position</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor="let employee of employees; let i = index">
+
+            <td>{{employee.fullName}}</td>
+            <td>{{employee.employeePosition.name}}</td>
+            <td>
+                <delete-undo-button (proceedDeletionEmitter)="removeEmployee(employee.id)"></delete-undo-button>
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+
+
+</div>

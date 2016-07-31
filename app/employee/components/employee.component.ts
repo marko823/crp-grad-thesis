@@ -1,6 +1,6 @@
 import {Component, ViewChild} from "@angular/core";
-import {EmployeeFormComponent} from "./employee-form.component";
-import {EmployeesListComponent} from "./employees-list.component";
+import {EmployeeFormComponent} from "./employee-form/employee-form.component";
+import {EmployeesTableComponent} from "./employees-table/employees-table.component";
 import {InfoBoxComponent} from "../../shared/components/info-box/info-box.component";
 import {GlobalService} from "../../shared/services/global.service";
 import {PageComponent} from "../../shared/components/page/page.component";
@@ -13,17 +13,17 @@ import {PageComponent} from "../../shared/components/page/page.component";
                 <br>
                 <info-box [infoBoxShown]="showPageInfo()" [infoMessage]="pageInfo" 
                     (removeInfo)="removePageInfo()"></info-box>
-                <employee-form (employeeAdded)="addEmployeeToList($event)"></employee-form>
-                <employees-list #employeeList></employees-list>
+                <employee-form (employeeAdded)="addEmployee($event)"></employee-form>
+                <employees-table #employeeTable></employees-table>
                 
 `,
-    directives: [InfoBoxComponent, EmployeeFormComponent, EmployeesListComponent]
+    directives: [InfoBoxComponent, EmployeeFormComponent, EmployeesTableComponent]
 })
 
 export class EmployeeComponent extends PageComponent {
 
-    @ViewChild('employeeList')
-    employeeList;
+    @ViewChild('employeeTable')
+    employeeTable;
 
     pageInfo = "This is the page for managing all of the current employees";
 
@@ -39,8 +39,8 @@ export class EmployeeComponent extends PageComponent {
         return this.globalService.getShowEmployeesInfoBox();
     }
 
-    addEmployeeToList(employee:any) {
-        this.employeeList.employees.push(employee);
+    addEmployee(employee:any) {
+        this.employeeTable.employees.push(employee);
     }
 
 

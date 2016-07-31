@@ -1,10 +1,10 @@
 import {Component, OnInit, Output, EventEmitter} from "@angular/core";
-import {Employee} from "../../shared/model/employee";
-import {EmployeePosition} from "../../shared/model/employee-position";
+import {Employee} from "../../../shared/model/employee";
+import {EmployeePosition} from "../../../shared/model/employee-position";
 import {SELECT_DIRECTIVES} from "ng2-select/ng2-select";
-import {EmployeeService} from "../../shared/services/employee.service";
-import {EmployeePositionService} from "../../shared/services/employee-position.service";
-import {UtilityService} from "../../shared/services/utility.service";
+import {EmployeeService} from "../../../shared/services/employee.service";
+import {EmployeePositionService} from "../../../shared/services/employee-position.service";
+import {UtilityService} from "../../../shared/services/utility.service";
 
 @Component({
     moduleId: module.id,
@@ -63,9 +63,5 @@ export class EmployeeFormComponent implements OnInit {
         this.active = false;
         setTimeout(()=>this.active = true, 0);
 
-    }
-
-    printEmployees() {
-        console.log(this.employees);
     }
 }
