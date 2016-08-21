@@ -9,6 +9,9 @@ import {EmployeeService} from "./shared/services/employee.service";
 import {ProjectService} from "./shared/services/project.service";
 import {UtilityService} from "./shared/services/utility.service";
 import {GlobalService} from "./shared/services/global.service";
+import {AuthService} from "./shared/services/auth.service";
+import {AUTH_CONFIG, AUTH0_CONFIG} from "./shared/configurations/auth0";
+
 
 @Component({
     selector: 'my-app',
@@ -17,12 +20,25 @@ import {GlobalService} from "./shared/services/global.service";
                     <a class="navbar-brand" [routerLink]="['/project']">Projects</a>
                     <a class="navbar-brand" [routerLink]="['/employee']">Employees</a>
                     <a class="navbar-brand" [routerLink]="['/employee-position']">Employee Position</a>
+                    <a *ngIf="auth.authenticated()" class="navbar-brand navbar-right" (click)="auth.logout()">Logout</a>
                 </nav>
                <router-outlet></router-outlet>`,
     directives: [ROUTER_DIRECTIVES],
-    providers: [EmployeePositionService, EmployeeService, ProjectService, UtilityService, GlobalService]
+    providers: [
+        {provide: AUTH_CONFIG, useValue: AUTH0_CONFIG},
+        EmployeePositionService,
+        EmployeeService,
+        ProjectService,
+        UtilityService,
+        GlobalService,
+        AuthService
+    ]
 })
 
 export class AppComponent {
+
+    constructor(private auth:AuthService) {
+    }
+
 }
 
