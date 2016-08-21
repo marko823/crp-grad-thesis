@@ -1,5 +1,16 @@
+#ignore
+
 .idea/*
 node_modules
 typings
 app/*/**.js
 app/*/**.js.map
+
+
+#don't ignore
+
+!app/main.js
+!app/main.js.map
+
+
+
