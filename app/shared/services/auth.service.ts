@@ -14,7 +14,7 @@ export class AuthService {
 
         if (result && result.idToken) {
             localStorage.setItem('id_token', result.idToken);
-            this.router.navigate(['/home']);
+            this.router.navigate(['/dashboard']);
         } else if (result && result.error) {
             alert('error: ' + result.error);
         }
@@ -42,5 +42,6 @@ export class AuthService {
     public logout() {
         // Remove token from localStorage
         localStorage.removeItem('id_token');
+        this.router.navigate(['/login']);
     };
 }

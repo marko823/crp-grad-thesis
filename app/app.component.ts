@@ -10,7 +10,6 @@ import {ProjectService} from "./shared/services/project.service";
 import {UtilityService} from "./shared/services/utility.service";
 import {GlobalService} from "./shared/services/global.service";
 import {AuthService} from "./shared/services/auth.service";
-import {AUTH_CONFIG, AUTH0_CONFIG} from "./shared/configurations/auth0";
 
 
 @Component({
@@ -25,13 +24,11 @@ import {AUTH_CONFIG, AUTH0_CONFIG} from "./shared/configurations/auth0";
                <router-outlet></router-outlet>`,
     directives: [ROUTER_DIRECTIVES],
     providers: [
-        {provide: AUTH_CONFIG, useValue: AUTH0_CONFIG},
         EmployeePositionService,
         EmployeeService,
         ProjectService,
         UtilityService,
-        GlobalService,
-        AuthService
+        GlobalService
     ]
 })
 

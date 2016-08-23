@@ -10,7 +10,7 @@
                placeholder="your password">
     </div>
 
-    <button *ngIf="!userAuthenticated()" type="submit" class="btn btn-default"
+    <button type="submit" class="btn btn-default"
             (click)="login(username.value, password.value)">Login
     </button>
 

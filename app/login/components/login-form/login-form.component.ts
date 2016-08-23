@@ -16,8 +16,4 @@ export class LoginFormComponent {
         this.auth.login(username, password);
     }
 
-    userAuthenticated() {
-        return this.auth.authenticated();
-    }
-
 }
