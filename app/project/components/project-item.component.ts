@@ -1,7 +1,6 @@
 import {Component, Input, EventEmitter, Output} from "@angular/core";
 import {Project} from "../../shared/model/project";
-import {HighlightDirective} from "../../shared/directives/highlight.directive";
-import {TimerWrapper} from "@angular/platform-browser-dynamic/src/facade/async";
+// import {TimerWrapper} from "@angular/platform-browser-dynamic/src/facade/async";
 
 @Component({
 
@@ -28,8 +27,7 @@ import {TimerWrapper} from "@angular/platform-browser-dynamic/src/facade/async";
         .btn-default {
             float: right;
         }
-    `],
-    directives: [HighlightDirective]
+    `]
 })
 export class ProjectItemComponent {
 
@@ -51,7 +49,7 @@ export class ProjectItemComponent {
         this.scheduledForDeletion = true;
         this.showUndo = true;
 
-        TimerWrapper.setTimeout(() => {
+        setTimeout(() => {
             if (this.scheduledForDeletion) {
                 this.removeProjectEmitter.emit(this.listIndex);
             }

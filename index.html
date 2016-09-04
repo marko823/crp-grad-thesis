@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="forms.css">
 
+
+    <!--PrimeNG-->
+    <link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/themes/omega/theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/primeng.min.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="YOUR_PATH/font-awesome.min.css"/>-->
+
     <!-- Auth0 script -->
     <script src="//cdn.auth0.com/w2/auth0-7.0.3.min.js"></script>
 
@@ -22,7 +28,9 @@
         System
                 .import('main.js')
                 .catch(
-                        function(err){ console.error(err); }
+                        function (err) {
+                            console.error(err);
+                        }
                 );
     </script>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">

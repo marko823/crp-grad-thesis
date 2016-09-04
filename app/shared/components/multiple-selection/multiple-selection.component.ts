@@ -1,13 +1,10 @@
-import {Component, Input, OnInit, Output, EventEmitter} from "@angular/core";
-import {SELECT_DIRECTIVES} from "ng2-select/ng2-select";
-import {SelectedItemComponent} from "./selected-item.component";
+import {Component, Input, Output, EventEmitter} from "@angular/core";
 import Immutable = require('immutable');
 
 @Component({
     moduleId: module.id,
     selector: 'multiple-selection',
     templateUrl: 'multiple-selection.component.html',
-    directives: [SELECT_DIRECTIVES, SelectedItemComponent],
     styles: [`
         .selected-items{
             float: right;
@@ -16,7 +13,7 @@ import Immutable = require('immutable');
     `]
 })
 
-export class MultipleSelectionComponent implements OnInit {
+export class MultipleSelectionComponent {
 
     @Input()
     itemsName:string;

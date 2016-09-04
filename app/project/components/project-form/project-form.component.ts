@@ -3,15 +3,13 @@ import {Project} from "../../../shared/model/project";
 import {ProjectService} from "../../../shared/services/project.service";
 import {EmployeeService} from "../../../shared/services/employee.service";
 import {UtilityService} from "../../../shared/services/utility.service";
-import {MultipleSelectionComponent} from "../../../shared/components/multiple-selection/multiple-selection.component";
-
+import {EMPLOYEES} from "../../../shared/model/mock-employees";
 
 @Component({
     moduleId: module.id,
     selector: 'project-form',
     templateUrl: 'project-form.component.html',
-    styleUrls: ['project-form.component.css'],
-    directives: [MultipleSelectionComponent]
+    styleUrls: ['project-form.component.css']
 })
 export class ProjectFormComponent {
 
@@ -33,6 +31,11 @@ export class ProjectFormComponent {
     }
 
     onSubmit() {
+
+        //todo
+        //find rc5 compatible library for select
+        this.model.employees = [EMPLOYEES[0], EMPLOYEES[1]];
+        
         this.projectService.addProject(this.model);
         this.model = this.utilityService.emptyProject();
         this.active = false;

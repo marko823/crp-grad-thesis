@@ -1,19 +1,14 @@
 import {Component, OnInit} from "@angular/core";
-import {COMMON_DIRECTIVES} from "@angular/common";
-import {DND_DIRECTIVES} from "ng2-dnd/ng2-dnd";
 import {Project} from "../../../shared/model/project";
 import {ProjectService} from "../../../shared/services/project.service";
-import {HighlightDirective} from "../../../shared/directives/highlight.directive";
-import {SortButtonsComponent} from "../../../shared/components/sort-buttons/sort-buttons.component";
-import {DeleteUndoButtonComponent} from "../../../shared/components/delete-undo-button/delete-undo-button.component";
+// import {COMMON_DIRECTIVES} from "@angular/common";
 
 @Component({
     moduleId: module.id,
-    selector: 'projects-list',
-    templateUrl: 'projects-table.component.html',
-    directives: [DeleteUndoButtonComponent, HighlightDirective, SortButtonsComponent, COMMON_DIRECTIVES, DND_DIRECTIVES]
+    selector: 'projects-table',
+    templateUrl: 'projects-table.component.html'
 })
-export class ProjectsListComponent implements OnInit {
+export class ProjectsTableComponent implements OnInit {
 
     projects:Array<Project>;
 

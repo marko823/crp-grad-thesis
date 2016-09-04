@@ -1,7 +1,4 @@
 import {Component} from "@angular/core";
-import {EmployeePositionFormComponent} from "./employee-position-form.component";
-import {EmployeePositionsListComponent} from "./employee-positions-list.component";
-import {InfoBoxComponent} from "../../shared/components/info-box/info-box.component";
 import {GlobalService} from "../../shared/services/global.service";
 import {PageComponent} from "../../shared/components/page/page.component";
 
@@ -13,10 +10,9 @@ import {PageComponent} from "../../shared/components/page/page.component";
                 <br>
                 <info-box [infoBoxShown]="showPageInfo()" [infoMessage]="pageInfo" 
                     (removeInfo)="removePageInfo()"></info-box>
-                <employee-position-form></employee-position-form>
+                <!--<employee-position-form></employee-position-form>-->
                 <employee-positions-list></employee-positions-list>
-`,
-    directives: [InfoBoxComponent, EmployeePositionFormComponent, EmployeePositionsListComponent]
+`
 })
 
 export class EmployeePositionComponent extends PageComponent {

@@ -1,7 +1,4 @@
 import {Component, ViewChild} from "@angular/core";
-import {EmployeeFormComponent} from "./employee-form/employee-form.component";
-import {EmployeesTableComponent} from "./employees-table/employees-table.component";
-import {InfoBoxComponent} from "../../shared/components/info-box/info-box.component";
 import {GlobalService} from "../../shared/services/global.service";
 import {PageComponent} from "../../shared/components/page/page.component";
 
@@ -15,9 +12,9 @@ import {PageComponent} from "../../shared/components/page/page.component";
                     (removeInfo)="removePageInfo()"></info-box>
                 <employee-form (employeeAdded)="addEmployee($event)"></employee-form>
                 <employees-table #employeeTable></employees-table>
+                <employee-detail></employee-detail>
                 
-`,
-    directives: [InfoBoxComponent, EmployeeFormComponent, EmployeesTableComponent]
+`
 })
 
 export class EmployeeComponent extends PageComponent {

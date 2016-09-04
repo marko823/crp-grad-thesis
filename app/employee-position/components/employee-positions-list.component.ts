@@ -1,5 +1,4 @@
 import {Component, OnInit} from "@angular/core";
-import {EmployeePositionItemComponent} from "./employee-position-item.component";
 import {EmployeePosition} from "../../shared/model/employee-position";
 import {EmployeePositionService} from "../../shared/services/employee-position.service";
 
@@ -14,8 +13,7 @@ import {EmployeePositionService} from "../../shared/services/employee-position.s
             <employee-position-item [employeePosition]="employeePosition"></employee-position-item>
           </div>
         </div>
-    `,
-    directives: [EmployeePositionItemComponent]
+    `
 })
 export class EmployeePositionsListComponent implements OnInit {
 

@@ -1,5 +1,4 @@
 import {Injectable, Inject} from "@angular/core";
-import {tokenNotExpired} from "angular2-jwt";
 import {Router} from "@angular/router";
 import {AUTH_CONFIG} from "../configurations/auth0";
 
@@ -22,7 +21,7 @@ export class AuthService {
     }
 
     public login(username, password) {
-
+        console.log(this.auth);
         this.auth.login({
             connection: 'Username-Password-Authentication',
             responseType: 'token',
@@ -36,7 +35,11 @@ export class AuthService {
     public authenticated() {
         // Check if there's an unexpired JWT
         // This searches for an item in localStorage with key == 'id_token'
-        return tokenNotExpired();
+
+        //TODO
+        // return tokenNotExpired();
+
+        return true;
     };
 
     public logout() {

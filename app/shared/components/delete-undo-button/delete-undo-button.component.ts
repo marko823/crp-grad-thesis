@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Output} from "@angular/core";
-import {TimerWrapper} from "@angular/platform-browser-dynamic/src/facade/async";
+// import {TimerWrapper} from "@angular/platform-browser-dynamic/src/facade/async";
 
 @Component({
 
@@ -31,7 +31,7 @@ export class DeleteUndoButtonComponent {
         this.scheduledForDeletion = true;
         this.showUndo = true;
 
-        TimerWrapper.setTimeout(() => {
+        setTimeout(() => {
             if (this.scheduledForDeletion) {
                 this.proceedDeletionEmitter.emit(null);
             }

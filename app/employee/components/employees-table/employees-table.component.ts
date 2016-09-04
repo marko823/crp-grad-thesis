@@ -1,13 +1,10 @@
 import {Component, OnInit} from "@angular/core";
 import {EmployeeService} from "../../../shared/services/employee.service";
-import {SortButtonsComponent} from "../../../shared/components/sort-buttons/sort-buttons.component";
-import {DeleteUndoButtonComponent} from "../../../shared/components/delete-undo-button/delete-undo-button.component";
 
 @Component({
     moduleId: module.id,
     selector: 'employees-table',
-    templateUrl: 'employees-table.component.html',
-    directives: [DeleteUndoButtonComponent, SortButtonsComponent]
+    templateUrl: 'employees-table.component.html'
 })
 export class EmployeesTableComponent implements OnInit {
 
@@ -30,6 +27,10 @@ export class EmployeesTableComponent implements OnInit {
 
     removeEmployee(id:number) {
         this.employees = this.employeeService.removeEmployee(id);
+    }
+
+    showScheduleForEmployee(event:any) {
+        console.log(event);
     }
 
 }

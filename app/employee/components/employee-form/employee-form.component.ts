@@ -1,17 +1,16 @@
 import {Component, OnInit, Output, EventEmitter} from "@angular/core";
 import {Employee} from "../../../shared/model/employee";
 import {EmployeePosition} from "../../../shared/model/employee-position";
-import {SELECT_DIRECTIVES} from "ng2-select/ng2-select";
 import {EmployeeService} from "../../../shared/services/employee.service";
 import {EmployeePositionService} from "../../../shared/services/employee-position.service";
 import {UtilityService} from "../../../shared/services/utility.service";
+import {EMPLOYEEPOSITIONS} from "../../../shared/model/mock-employee-positions";
 
 @Component({
     moduleId: module.id,
     selector: 'employee-form',
     templateUrl: 'employee-form.component.html',
-    styleUrls: ['employee-form.component.css'],
-    directives: [SELECT_DIRECTIVES]
+    styleUrls: ['employee-form.component.css']
 })
 export class EmployeeFormComponent implements OnInit {
 
@@ -42,6 +41,13 @@ export class EmployeeFormComponent implements OnInit {
     }
 
     onSubmit() {
+
+        //todo
+        //find rc5 compatible select library
+
+        // faking emp position
+        this.model.employeePosition.id = EMPLOYEEPOSITIONS[0].id;
+        this.model.employeePosition.name = EMPLOYEEPOSITIONS[1].name;
 
         this.employeeService.addEmployee(this.model);
         this.employeeAdded.emit(this.model);
