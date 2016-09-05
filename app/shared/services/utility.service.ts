@@ -49,7 +49,7 @@ export class UtilityService {
     }
 
     emptyEmployee() {
-        return new Employee(1, "", "", "", this.emptyEmployeePosition(), new Date())
+        return new Employee(1, "", "", "", this.emptyEmployeePosition(), new Date(), [])
     }
 
     emptyEmployeePosition() {

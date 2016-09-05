@@ -1,5 +1,4 @@
 import {Component, Input, Output, EventEmitter} from "@angular/core";
-import {WORK_DAYS} from "../../../shared/model/mock-work-days";
 import {Employee} from "../../../shared/model/employee";
 
 @Component({
@@ -14,12 +13,6 @@ export class EmployeeDetailComponent {
 
     @Output()
     closeEmployeeDetails = new EventEmitter();
-
-    events:any[];
-
-    ngOnInit() {
-        this.events = WORK_DAYS;
-    }
 
     closeEmployeeDetailsHandler() {
         this.closeEmployeeDetails.emit("");
