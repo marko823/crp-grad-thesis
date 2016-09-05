@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Output, EventEmitter} from "@angular/core";
 import {EmployeeService} from "../../../shared/services/employee.service";
 
 @Component({
@@ -9,6 +9,10 @@ import {EmployeeService} from "../../../shared/services/employee.service";
 export class EmployeesTableComponent implements OnInit {
 
     employees:Array<any>;
+
+    @Output()
+    showDetailsEmployee = new EventEmitter();
+
 
     constructor(private employeeService:EmployeeService) {
     }
@@ -29,8 +33,8 @@ export class EmployeesTableComponent implements OnInit {
         this.employees = this.employeeService.removeEmployee(id);
     }
 
-    showScheduleForEmployee(event:any) {
-        console.log(event);
+    showScheduleForEmployee(employeeId:number) {
+        this.showDetailsEmployee.emit(employeeId);
     }
 
 }

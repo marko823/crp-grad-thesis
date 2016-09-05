@@ -14,7 +14,7 @@ export class EmployeeService {
     }
 
     getEmployee(id:number) {
-        return EMPLOYEES[id];
+        return EMPLOYEES.get(id);
     }
 
     removeEmployee(id:number) {

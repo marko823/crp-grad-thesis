@@ -31,7 +31,7 @@
             // 'ng2-calendar': 'node_modules/ng2-calendar',
             'moment': 'node_modules/moment/moment.js',
             'immutable': 'node_modules/immutable/dist/immutable.js',
-            // 'primeng': 'node_modules/primeng'
+            'primeng': 'node_modules/primeng'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -53,7 +53,7 @@
             'ng2-bootstrap': {defaultExtension: 'js'},
             // 'ng2-calendar': {defaultExtension: 'js'},
             'moment': {defaultExtension: 'js'},
-            // 'primeng': {defaultExtension: 'js'}
+            'primeng': {defaultExtension: 'js'}
         }
     });
 })(this);

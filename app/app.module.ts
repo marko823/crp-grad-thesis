@@ -30,12 +30,14 @@ import {EmployeePositionFormComponent} from "./employee-position/components/empl
 import {EmployeePositionsListComponent} from "./employee-position/components/employee-positions-list.component";
 import {EmployeePositionItemComponent} from "./employee-position/components/employee-position-item.component";
 import {UtilityService} from "./shared/services/utility.service";
+import {ScheduleModule} from "primeng/components/schedule/schedule";
 
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
+        ScheduleModule,
         routing
     ],
     declarations: [

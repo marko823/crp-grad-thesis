@@ -15,7 +15,7 @@
         </thead>
         <tbody>
 
-        <tr *ngFor="let employee of employees; let i = index" (click)="showScheduleForEmployee(employee)">
+        <tr *ngFor="let employee of employees; let i = index" (click)="showScheduleForEmployee(employee.id)">
 
             <td>{{employee.fullName}}</td>
             <td>{{employee.employeePosition.name}}</td>
