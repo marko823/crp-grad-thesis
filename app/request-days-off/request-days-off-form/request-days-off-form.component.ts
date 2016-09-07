@@ -1,4 +1,7 @@
 import {Component, OnInit} from "@angular/core";
+import {AuthService} from "../../shared/services/auth.service";
+import {RequestDaysOff} from "../../shared/model/request-days-off";
+import {RequestDaysOffService} from "../../shared/services/request-days-off.service";
 import Immutable = require('immutable');
 
 @Component({
@@ -14,6 +17,11 @@ export class RequestDaysOffFormComponent implements OnInit {
     toDate:Date;
 
     requestedDaysOff:Array<Date>;
+
+    constructor(private authService:AuthService,
+                private requestDaysOffService:RequestDaysOffService) {
+
+    }
 
     ngOnInit() {
         this.requestedDaysOff = [];
@@ -50,7 +58,8 @@ export class RequestDaysOffFormComponent implements OnInit {
     }
 
     sendRequest() {
-        // send request
+        let request = new RequestDaysOff(this.authService.getMockedAuthUserId(), this.fromDate, this.toDate, false);
+        this.requestDaysOffService.sendRequest(request);
     }
 
 }

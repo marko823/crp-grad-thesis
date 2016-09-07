@@ -7,6 +7,7 @@ import {AUTH_CONFIG} from "../configurations/auth0";
 @Injectable()
 export class AuthService {
 
+    mockedAuthUserId:number = 1;
 
     constructor(private router:Router, @Inject(AUTH_CONFIG) private auth) {
 
@@ -47,4 +48,9 @@ export class AuthService {
         localStorage.removeItem('id_token');
         this.router.navigate(['/login']);
     };
+
+    getMockedAuthUserId() {
+        return this.mockedAuthUserId;
+    }
+    
 }

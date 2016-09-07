@@ -33,6 +33,7 @@ import {UtilityService} from "./shared/services/utility.service";
 import {ScheduleModule} from "primeng/components/schedule/schedule";
 import {RequestDaysOffComponent} from "./request-days-off/request-days-off.component";
 import {RequestDaysOffFormComponent} from "./request-days-off/request-days-off-form/request-days-off-form.component";
+import {RequestDaysOffService} from "./shared/services/request-days-off.service";
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import {RequestDaysOffFormComponent} from "./request-days-off/request-days-off-f
         ProjectService,
         EmployeeService,
         EmployeePositionService,
-        UtilityService
+        UtilityService,
+        RequestDaysOffService
     ]
 })
 export class AppModule {
