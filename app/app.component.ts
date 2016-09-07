@@ -15,6 +15,7 @@ import {AuthService} from "./shared/services/auth.service";
                     <a class="navbar-brand" [routerLink]="['/project']">Projects</a>
                     <a class="navbar-brand" [routerLink]="['/employee']">Employees</a>
                     <a class="navbar-brand" [routerLink]="['/employee-position']">Employee Position</a>
+                    <a class="navbar-brand" [routerLink]="['/request-days-off']">Request days off</a>
                     <a *ngIf="auth.authenticated()" class="navbar-brand navbar-right" (click)="auth.logout()">Logout</a>
                 </nav>
                <router-outlet></router-outlet>

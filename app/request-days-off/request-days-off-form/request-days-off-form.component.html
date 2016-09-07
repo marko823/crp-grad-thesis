@@ -1,0 +1,28 @@
+<form class="login-form col-md-4">
+
+    <div class="form-group">
+        <label>From date</label>
+        <input type="date" class="form-control" #fromDate
+               (change)="changeFromDateHandler(fromDate)">
+    </div>
+
+    <div class="form-group">
+        <label>To date</label>
+        <input type="date" class="form-control" #toDate
+               (change)="changeToDateHandler(toDate)">
+    </div>
+
+    <button type="submit" class="btn btn-default"
+            (click)="sendRequest()">Send request
+    </button>
+
+</form>
+
+<div class="col-md-4">
+    <h4>Days requested</h4>
+
+    <p *ngFor="let requestedDayOff of requestedDaysOff">
+        {{requestedDayOff | date: 'shortDate'}}
+    </p>
+
+</div>

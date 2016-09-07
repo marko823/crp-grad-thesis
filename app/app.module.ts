@@ -31,6 +31,8 @@ import {EmployeePositionsListComponent} from "./employee-position/components/emp
 import {EmployeePositionItemComponent} from "./employee-position/components/employee-position-item.component";
 import {UtilityService} from "./shared/services/utility.service";
 import {ScheduleModule} from "primeng/components/schedule/schedule";
+import {RequestDaysOffComponent} from "./request-days-off/request-days-off.component";
+import {RequestDaysOffFormComponent} from "./request-days-off/request-days-off-form/request-days-off-form.component";
 
 
 @NgModule({
@@ -62,6 +64,8 @@ import {ScheduleModule} from "primeng/components/schedule/schedule";
         EmployeePositionFormComponent,
         EmployeePositionsListComponent,
         EmployeePositionItemComponent,
+        RequestDaysOffFormComponent,
+        RequestDaysOffComponent
         // SELECT_DIRECTIVES
 
     ],

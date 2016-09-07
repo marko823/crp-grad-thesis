@@ -8,6 +8,7 @@ import {UnauthenticatedUserGuard} from "./shared/guards/unauthenticated-user.gua
 import {Routes, RouterModule} from "@angular/router";
 import {AuthService} from "./shared/services/auth.service";
 import {AUTH0_CONFIG, AUTH_CONFIG} from "./shared/configurations/auth0";
+import {RequestDaysOffComponent} from "./request-days-off/request-days-off.component";
 
 
 const appRoutes:Routes = [
@@ -17,6 +18,7 @@ const appRoutes:Routes = [
     {path: 'project', component: ProjectComponent, canActivate: [AuthenticatedUserGuard]},
     {path: 'employee', component: EmployeeComponent, canActivate: [AuthenticatedUserGuard]},
     {path: 'employee-position', component: EmployeePositionComponent, canActivate: [AuthenticatedUserGuard]},
+    {path: 'request-days-off', component: RequestDaysOffComponent},
     {path: "**", redirectTo: "login"}
 ];
 
