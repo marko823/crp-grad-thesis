@@ -20,12 +20,17 @@ export class PendingRequestsTableComponent {
 
     approveRequest(request:RequestDaysOff) {
         this.requestDaysOffService.approveRequest(request);
-        let index = this.pendingRequests.indexOf(request);
-        this.pendingRequests.splice(index, 1);
+        this.removeRequestFromList(request);
     }
 
     disapproveRequest(request:RequestDaysOff) {
         this.requestDaysOffService.removeRequest(request.employeeId);
+        this.removeRequestFromList(request);
+    }
+
+    removeRequestFromList(request:RequestDaysOff) {
+        let index = this.pendingRequests.indexOf(request);
+        this.pendingRequests.splice(index, 1);
     }
 
     employeeFullName(employeeId:number) {
@@ -36,5 +41,5 @@ export class PendingRequestsTableComponent {
     noPendingRequests() {
         return this.pendingRequests.length == 0;
     }
-    
+
 }
