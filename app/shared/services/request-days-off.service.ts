@@ -11,10 +11,16 @@ export class RequestDaysOffService {
 
     constructor(private employeeService:EmployeeService) {
         this.pendingRequests = new Map<number, RequestDaysOff>();
+        localStorage.removeItem("requests");
+        localStorage.setItem("requests", JSON.stringify(this.pendingRequests));
+        // alert(JSON.stringify(this.pendingRequests));
     }
 
     sendRequest(request:RequestDaysOff) {
         this.pendingRequests.set(request.employeeId, request);
+        localStorage.removeItem("requests");
+        localStorage.setItem("requests", JSON.stringify(this.pendingRequests));
+        alert(JSON.stringify(this.pendingRequests));
     }
 
     getPendingRequests() {
@@ -25,6 +31,9 @@ export class RequestDaysOffService {
     //change request model to have unique id
     removeRequest(employeeId:number) {
         this.pendingRequests.delete(employeeId);
+        localStorage.removeItem("requests");
+        localStorage.setItem("requests", JSON.stringify(this.pendingRequests));
+        alert(JSON.stringify(this.pendingRequests));
     }
 
     approveRequest(request:RequestDaysOff) {
@@ -38,6 +47,7 @@ export class RequestDaysOffService {
             }
         }
 
+        this.removeRequest(request.employeeId);
     }
 
     findMatch(workDaysOff:Array<WorkDay>, workDay:WorkDay):boolean {

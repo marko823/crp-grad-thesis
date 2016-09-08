@@ -17,6 +17,18 @@ export class EmployeeService {
         return EMPLOYEES.get(id);
     }
 
+    findEmployeeId(email:string) {
+
+        let employeeArray = Array.from(EMPLOYEES.values());
+
+        for (let employee of employeeArray) {
+            if (employee.email === email.trim()) {
+                return employee.id;
+            }
+        }
+        return undefined;
+    }
+
     removeEmployee(id:number) {
         EMPLOYEES.delete(id);
         return this.getEmployees();

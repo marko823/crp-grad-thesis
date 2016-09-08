@@ -1,10 +1,14 @@
 import {Injectable} from "@angular/core";
+import {Employee} from "../model/employee";
+import {ADMIN} from "../model/mock-admin";
 /**
  * Created by martina on 7/30/16.
  */
 
 @Injectable()
 export class GlobalService {
+
+    adminUser:Employee = ADMIN;
 
     showProjectsInfoBox:boolean;
     showEmployeesInfoBox:boolean;

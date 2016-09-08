@@ -2,14 +2,17 @@ import {Injectable, Inject} from "@angular/core";
 import {tokenNotExpired} from "angular2-jwt";
 import {Router} from "@angular/router";
 import {AUTH_CONFIG} from "../configurations/auth0";
+import {EmployeeService} from "./employee.service";
+import {GlobalService} from "./global.service";
 
 
 @Injectable()
 export class AuthService {
 
-    mockedAuthUserId:number = 1;
-
-    constructor(private router:Router, @Inject(AUTH_CONFIG) private auth) {
+    constructor(private router:Router,
+                @Inject(AUTH_CONFIG) private auth,
+                private employeeService:EmployeeService,
+                private globalService:GlobalService) {
 
         var result = this.auth.parseHash(window.location.hash);
 
@@ -22,35 +25,53 @@ export class AuthService {
 
     }
 
-    public login(username, password) {
-        console.log(this.auth);
-        console.log(username + " " + password);
+    public login(email, password) {
+
+        this.storeUserId(email);
+        
         this.auth.login({
             connection: 'Username-Password-Authentication',
             responseType: 'token',
-            email: username,
+            email: email,
             password: password,
         }, function (err) {
-            if (err) alert("something went wrong: " + err.message);
+            if (err) {
+                alert("something went wrong: " + err.message);
+                localStorage.removeItem('id_user');
+            }
+
         });
+
     };
 
     public authenticated() {
-        // Check if there's an unexpired JWT
-        // This searches for an item in localStorage with key == 'id_token'
-
-        //TODO
         return tokenNotExpired();
     };
 
     public logout() {
-        // Remove token from localStorage
+        // Remove tokens from localStorage
         localStorage.removeItem('id_token');
+        localStorage.removeItem('id_user');
         this.router.navigate(['/login']);
     };
 
-    getMockedAuthUserId() {
-        return this.mockedAuthUserId;
+    getLoggedInUserId() {
+        return localStorage.getItem('id_user');
     }
-    
+
+    private storeUserId(email:string) {
+
+        // employees
+        let employeeId = this.employeeService.findEmployeeId(email);
+        if (employeeId != undefined) {
+            localStorage.setItem('id_user', employeeId.toString());
+        }
+
+        //admin
+        if (this.globalService.adminUser.email.trim() == email.trim()) {
+            localStorage.setItem('id_user', this.globalService.adminUser.id.toString());
+        }
+
+    }
+
 }

@@ -58,7 +58,8 @@ export class RequestDaysOffFormComponent implements OnInit {
     }
 
     sendRequest() {
-        let request = new RequestDaysOff(this.authService.getMockedAuthUserId(), this.fromDate, this.toDate, false);
+        let request = new RequestDaysOff(this.authService.getLoggedInUserId(),
+            this.fromDate, this.toDate, false);
         this.requestDaysOffService.sendRequest(request);
     }
 

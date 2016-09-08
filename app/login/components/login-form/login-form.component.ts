@@ -12,8 +12,8 @@ export class LoginFormComponent {
     constructor(private auth:AuthService) {
     }
 
-    login(username:string, password:string) {
-        this.auth.login(username, password);
+    login(email:string, password:string) {
+        this.auth.login(email, password);
     }
 
 }
