@@ -9,11 +9,14 @@ import {AuthService} from "../../../shared/services/auth.service";
 })
 export class LoginFormComponent {
 
+    loginMsg:string;
+
     constructor(private auth:AuthService) {
     }
 
     login(email:string, password:string) {
         this.auth.login(email, password);
+        this.loginMsg = this.auth.getErrorMsg();
     }
 
 }

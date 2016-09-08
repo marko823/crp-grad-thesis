@@ -7,6 +7,8 @@ import {GlobalService} from "./global.service";
 @Injectable()
 export class AuthService {
 
+    errorMsg:string;
+
     constructor(private router:Router,
                 // @Inject(AUTH_CONFIG) private auth,
                 private employeeService:EmployeeService,
@@ -60,18 +62,25 @@ export class AuthService {
 
     private storeUserId(email:string) {
 
+        this.errorMsg = "An error occurred while logging, try again";
         //admin
         if (this.globalService.adminUser.email.trim() == email.trim()) {
             localStorage.setItem('id_user', this.globalService.adminUser.id.toString());
+            this.errorMsg = "User " + email + "successfully logged in";
         }
         else {
             // employees
             let employeeId = this.employeeService.findEmployeeId(email);
             if (employeeId != undefined) {
                 localStorage.setItem('id_user', employeeId.toString());
+                this.errorMsg = "User " + email + "successfully logged in";
             }
         }
 
+    }
+
+    getErrorMsg() {
+        return this.errorMsg;
     }
 
 }
