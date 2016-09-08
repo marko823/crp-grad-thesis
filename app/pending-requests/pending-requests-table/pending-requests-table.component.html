@@ -1,0 +1,36 @@
+<div class="col-md-7">
+
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>Employee Id</th>
+            <th>From date</th>
+            <th>To date</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor="let request of pendingRequests">
+
+            <td>{{request.employeeId}}</td>
+            <td>{{request.fromDate | date:'shortDate'}}</td>
+            <td>{{request.toDate | date:'shortDate'}}</td>
+            <td>
+                <button (click)="approveRequest(request)">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="false"></span>
+                </button>
+            </td>
+            <td>
+                <button (click)="disapproveRequest(request)">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="false"></span>
+                </button>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+</div>

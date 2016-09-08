@@ -9,6 +9,7 @@ import {Routes, RouterModule} from "@angular/router";
 import {AuthService} from "./shared/services/auth.service";
 import {AUTH0_CONFIG, AUTH_CONFIG} from "./shared/configurations/auth0";
 import {RequestDaysOffComponent} from "./request-days-off/request-days-off.component";
+import {PendingRequestsComponent} from "./pending-requests/pending-requests.component";
 
 
 const appRoutes:Routes = [
@@ -19,6 +20,7 @@ const appRoutes:Routes = [
     {path: 'employee', component: EmployeeComponent, canActivate: [AuthenticatedUserGuard]},
     {path: 'employee-position', component: EmployeePositionComponent, canActivate: [AuthenticatedUserGuard]},
     {path: 'request-days-off', component: RequestDaysOffComponent},
+    {path: 'pending-requests', component: PendingRequestsComponent},
     {path: "**", redirectTo: "login"}
 ];
 

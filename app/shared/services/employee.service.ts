@@ -13,7 +13,7 @@ export class EmployeeService {
         EMPLOYEES.set(EMPLOYEES.size + 1, employee);
     }
 
-    getEmployee(id:number) {
+    getEmployee(id:number):Employee {
         return EMPLOYEES.get(id);
     }
 

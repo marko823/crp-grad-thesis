@@ -34,6 +34,8 @@ import {ScheduleModule} from "primeng/components/schedule/schedule";
 import {RequestDaysOffComponent} from "./request-days-off/request-days-off.component";
 import {RequestDaysOffFormComponent} from "./request-days-off/request-days-off-form/request-days-off-form.component";
 import {RequestDaysOffService} from "./shared/services/request-days-off.service";
+import {PendingRequestsComponent} from "./pending-requests/pending-requests.component";
+import {PendingRequestsTableComponent} from "./pending-requests/pending-requests-table/pending-requests-table.component";
 
 
 @NgModule({
@@ -66,7 +68,9 @@ import {RequestDaysOffService} from "./shared/services/request-days-off.service"
         EmployeePositionsListComponent,
         EmployeePositionItemComponent,
         RequestDaysOffFormComponent,
-        RequestDaysOffComponent
+        RequestDaysOffComponent,
+        PendingRequestsTableComponent,
+        PendingRequestsComponent
         // SELECT_DIRECTIVES
 
     ],

@@ -2,6 +2,7 @@ import {WorkDay} from "./work-day";
 
 export const SHIFT_TYPE:string = "full shift";
 export const COLOR:string = "green";
+export const COLOR_OFF:string = "red";
 
 export var WORK_DAYS = [
 
