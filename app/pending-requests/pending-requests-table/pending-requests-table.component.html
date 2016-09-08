@@ -1,6 +1,6 @@
 <div class="col-md-7">
 
-    <table class="table table-condensed">
+    <table *ngIf="!noPendingRequests()" class="table table-condensed">
         <thead>
         <tr>
             <th>Employee Id</th>
@@ -14,7 +14,7 @@
 
         <tr *ngFor="let request of pendingRequests">
 
-            <td>{{request.employeeId}}</td>
+            <td>{{employeeFullName(request.employeeId)}}</td>
             <td>{{request.fromDate | date:'shortDate'}}</td>
             <td>{{request.toDate | date:'shortDate'}}</td>
             <td>
@@ -32,5 +32,6 @@
         </tbody>
     </table>
 
+    <h4 *ngIf="noPendingRequests()"> No pending requests </h4>
 
 </div>

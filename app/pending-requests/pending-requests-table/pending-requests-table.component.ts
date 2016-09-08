@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
-import {EmployeeService} from "../../../shared/services/employee.service";
 import {RequestDaysOffService} from "../../shared/services/request-days-off.service";
 import {RequestDaysOff} from "../../shared/model/request-days-off";
+import {EmployeeService} from "../../shared/services/employee.service";
 
 @Component({
     moduleId: module.id,
@@ -13,7 +13,8 @@ export class PendingRequestsTableComponent {
     pendingRequests:Array<any>;
 
 
-    constructor(private requestDaysOffService:RequestDaysOffService) {
+    constructor(private requestDaysOffService:RequestDaysOffService,
+                private employeeService:EmployeeService) {
         this.pendingRequests = requestDaysOffService.getPendingRequests();
     }
 
@@ -23,10 +24,17 @@ export class PendingRequestsTableComponent {
         this.pendingRequests.splice(index, 1);
     }
 
-    //TODO
-    //change request model to have unique id
     disapproveRequest(request:RequestDaysOff) {
         this.requestDaysOffService.removeRequest(request.employeeId);
     }
 
+    employeeFullName(employeeId:number) {
+        let employee = this.employeeService.getEmployee(employeeId);
+        return employee.fullName;
+    }
+
+    noPendingRequests() {
+        return this.pendingRequests.length == 0;
+    }
+    
 }
