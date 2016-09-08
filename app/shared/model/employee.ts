@@ -23,7 +23,7 @@ export class Employee {
     copyOfWorkingDaysMonth() {
         var result = [];
         for (let workDay of WORK_DAYS) {
-            result.push(workDay);
+            result.push(workDay.copyOf());
         }
         return result;
     }

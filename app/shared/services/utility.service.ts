@@ -40,7 +40,6 @@ export class UtilityService {
                 selectedEmployees.push(EMPLOYEES[id]);
             }
         }
-        console.log(selectedEmployees);
         return selectedEmployees;
     }
 

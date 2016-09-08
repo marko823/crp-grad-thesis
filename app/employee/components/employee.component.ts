@@ -53,9 +53,6 @@ export class EmployeeComponent extends PageComponent {
     }
 
     showEmployeeDetail(employeeId) {
-        console.log(employeeId);
-        console.log(this.employeeService);
-        console.log(this.employeeService.getEmployee(employeeId));
         this.employeeDetails = this.employeeService.getEmployee(employeeId);
         this.showEmployeeDetails = true;
     }

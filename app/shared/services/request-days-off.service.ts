@@ -11,29 +11,18 @@ export class RequestDaysOffService {
 
     constructor(private employeeService:EmployeeService) {
         this.pendingRequests = new Map<number, RequestDaysOff>();
-        localStorage.removeItem("requests");
-        localStorage.setItem("requests", JSON.stringify(this.pendingRequests));
-        // alert(JSON.stringify(this.pendingRequests));
     }
 
     sendRequest(request:RequestDaysOff) {
         this.pendingRequests.set(request.employeeId, request);
-        localStorage.removeItem("requests");
-        localStorage.setItem("requests", JSON.stringify(this.pendingRequests));
-        alert(JSON.stringify(this.pendingRequests));
     }
 
     getPendingRequests() {
         return Array.from(this.pendingRequests.values());
     }
 
-    //TODO
-    //change request model to have unique id
     removeRequest(employeeId:number) {
         this.pendingRequests.delete(employeeId);
-        localStorage.removeItem("requests");
-        localStorage.setItem("requests", JSON.stringify(this.pendingRequests));
-        alert(JSON.stringify(this.pendingRequests));
     }
 
     approveRequest(request:RequestDaysOff) {

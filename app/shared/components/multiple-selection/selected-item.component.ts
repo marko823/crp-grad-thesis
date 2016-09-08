@@ -19,7 +19,6 @@ export class SelectedItemComponent {
     removeSelectedItem = new EventEmitter();
 
     removeSelectedItemHandler() {
-        console.log(this.value);
         this.removeSelectedItem.emit(this.value);
     }
 

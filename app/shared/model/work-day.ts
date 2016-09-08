@@ -9,4 +9,8 @@ export class WorkDay {
                 public color:string) {
     }
 
+    copyOf() {
+        return new WorkDay(this.title, this.start, this.color);
+    }
+
 }

@@ -17,7 +17,7 @@ import {AuthenticatedUserGuard} from "./shared/guards/authenticated-user.guard";
 const appRoutes:Routes = [
     {path: 'login', component: LoginComponent, canActivate: [UnauthenticatedUserGuard]},
     {path: '', component: DashboardComponent, canActivate: [AuthenticatedUserGuard]},
-    {path: 'dashboard', component: DashboardComponent, canActivate: [AuthenticatedUserGuard]},
+    {path: 'dashboard', component: DashboardComponent},
     {path: 'project', component: ProjectComponent, canActivate: [AuthenticatedAdminUserGuard]},
     {path: 'employee', component: EmployeeComponent, canActivate: [AuthenticatedAdminUserGuard]},
     {path: 'employee-position', component: EmployeePositionComponent, canActivate: [AuthenticatedAdminUserGuard]},
