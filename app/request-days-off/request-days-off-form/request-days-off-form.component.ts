@@ -18,6 +18,8 @@ export class RequestDaysOffFormComponent implements OnInit {
 
     requestedDaysOff:Array<Date>;
 
+    uxMsg:string;
+
     constructor(private authService:AuthService,
                 private requestDaysOffService:RequestDaysOffService) {
 
@@ -28,11 +30,13 @@ export class RequestDaysOffFormComponent implements OnInit {
     }
 
     changeFromDateHandler(event:any) {
+        this.clearUxMsg();
         this.fromDate = new Date(event.value);
         this.calculateRequestedDaysOff();
     }
 
     changeToDateHandler(event:any) {
+        this.clearUxMsg();
         this.toDate = new Date(event.value);
         this.calculateRequestedDaysOff();
     }
@@ -61,6 +65,12 @@ export class RequestDaysOffFormComponent implements OnInit {
         let request = new RequestDaysOff(parseInt(this.authService.getLoggedInUserId()),
             this.fromDate, this.toDate, false);
         this.requestDaysOffService.sendRequest(request);
+        this.requestedDaysOff = [];
+        this.uxMsg = "Request successfully sent";
+    }
+
+    clearUxMsg() {
+        this.uxMsg = "";
     }
 
 }
