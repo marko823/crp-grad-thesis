@@ -10,8 +10,6 @@ export class AuthenticatedAdminUserGuard implements CanActivate {
     }
 
     canActivate() {
-        let loggedInUserId = this.authService.getLoggedInUserId();
-        let adminUserId = this.globalService.adminUser.id;
-        return this.authService.authenticated() && loggedInUserId === adminUserId.toString();
+        return this.authService.authenticated() && this.authService.isAdminLoggedIn();
     }
 }

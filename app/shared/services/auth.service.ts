@@ -60,6 +60,20 @@ export class AuthService {
         return localStorage.getItem('id_user');
     }
 
+    isAdminLoggedIn() {
+        let loggedInUserId = this.getLoggedInUserId();
+        let adminUserId = this.globalService.adminUser.id;
+
+        return loggedInUserId === adminUserId.toString();
+    }
+
+    isEmployeeLoggedIn() {
+        let loggedInUserId = this.getLoggedInUserId();
+        let adminUserId = this.globalService.adminUser.id;
+
+        return this.authenticated() && loggedInUserId != adminUserId.toString();
+    }
+
     private storeUserId(email:string) {
 
         this.errorMsg = "An error occurred while logging, try again";

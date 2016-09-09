@@ -36,6 +36,7 @@ import {RequestDaysOffFormComponent} from "./request-days-off/request-days-off-f
 import {RequestDaysOffService} from "./shared/services/request-days-off.service";
 import {PendingRequestsComponent} from "./pending-requests/pending-requests.component";
 import {PendingRequestsTableComponent} from "./pending-requests/pending-requests-table/pending-requests-table.component";
+import {DashboardCardComponent} from "./dashboard/components/dashboard-card/dashboard-card.component";
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import {PendingRequestsTableComponent} from "./pending-requests/pending-requests
         RequestDaysOffFormComponent,
         RequestDaysOffComponent,
         PendingRequestsTableComponent,
-        PendingRequestsComponent
+        PendingRequestsComponent,
+        DashboardCardComponent
         // SELECT_DIRECTIVES
 
     ],
