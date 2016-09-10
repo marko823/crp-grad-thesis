@@ -12,6 +12,7 @@ import {RequestDaysOffComponent} from "./request-days-off/request-days-off.compo
 import {PendingRequestsComponent} from "./pending-requests/pending-requests.component";
 import {AuthenticatedEmployeeUserGuard} from "./shared/guards/authenticated-employee-user.guard";
 import {AuthenticatedUserGuard} from "./shared/guards/authenticated-user.guard";
+import {EmployeeScheduleComponent} from "./employee-schedule/employee-schedule.component";
 
 
 const appRoutes:Routes = [
@@ -23,6 +24,7 @@ const appRoutes:Routes = [
     {path: 'employee-position', component: EmployeePositionComponent, canActivate: [AuthenticatedAdminUserGuard]},
     {path: 'pending-requests', component: PendingRequestsComponent, canActivate: [AuthenticatedAdminUserGuard]},
     {path: 'request-days-off', component: RequestDaysOffComponent, canActivate: [AuthenticatedEmployeeUserGuard]},
+    {path: 'employee-schedule', component: EmployeeScheduleComponent, canActivate: [AuthenticatedEmployeeUserGuard]},
     {path: "**", redirectTo: "login"}
 ];
 

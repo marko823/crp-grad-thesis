@@ -36,6 +36,7 @@ import {PendingRequestsTableComponent} from "./pending-requests/pending-requests
 import {DashboardCardComponent} from "./dashboard/components/dashboard-card/dashboard-card.component";
 import {EmployeePositionFormComponent} from "./employee-position/components/empoloyee-position-form/employee-position-form.component";
 import {EmployeePositionsListComponent} from "./employee-position/components/employee-positions-list/employee-positions-list.component";
+import {EmployeeScheduleComponent} from "./employee-schedule/employee-schedule.component";
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import {EmployeePositionsListComponent} from "./employee-position/components/emp
         RequestDaysOffComponent,
         PendingRequestsTableComponent,
         PendingRequestsComponent,
-        DashboardCardComponent
+        DashboardCardComponent,
+        EmployeeScheduleComponent
         // SELECT_DIRECTIVES
 
     ],
