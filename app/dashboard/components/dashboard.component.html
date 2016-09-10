@@ -1,21 +1,21 @@
-<h3>Dashboard</h3>
+<div class="col-md-10 scrollable-content">
+    <h3>Dashboard</h3>
 
-<div *ngIf="authService.authenticated()" class="container">
+    <div *ngIf="authService.authenticated()" class="container">
 
-    <div class="row">
-        <div class="col-md-2"></div>
-        <dashboard-card [dashboardCardModel]="dashboardCards[0]"></dashboard-card>
-        <dashboard-card [dashboardCardModel]="dashboardCards[1]"></dashboard-card>
+        <div class="row">
+            <dashboard-card [dashboardCardModel]="dashboardCards[0]"></dashboard-card>
+            <dashboard-card [dashboardCardModel]="dashboardCards[1]"></dashboard-card>
+        </div>
+
+        <div class="row">
+            <dashboard-card *ngIf="dashboardCards[2]" [dashboardCardModel]="dashboardCards[2]"></dashboard-card>
+            <dashboard-card *ngIf="dashboardCards[3]" [dashboardCardModel]="dashboardCards[3]"></dashboard-card>
+        </div>
+
     </div>
 
-    <div class="row">
-        <div class="col-md-2"></div>
-        <dashboard-card *ngIf="dashboardCards[2]" [dashboardCardModel]="dashboardCards[2]"></dashboard-card>
-        <dashboard-card *ngIf="dashboardCards[3]" [dashboardCardModel]="dashboardCards[3]"></dashboard-card>
+    <div *ngIf="!authService.authenticated()" class="container">
+        You need to be logged in to see dashboard.
     </div>
-
-</div>
-
-<div *ngIf="!authService.authenticated()" class="container">
-    You need to be logged in to see dashboard.
 </div>

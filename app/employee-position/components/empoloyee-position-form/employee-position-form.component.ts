@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {EmployeePosition} from "../../shared/model/employee-position";
-import {EmployeePositionService} from "../../shared/services/employee-position.service";
-import {UtilityService} from "../../shared/services/utility.service";
+import {Component, OnInit} from "@angular/core";
+import {EmployeePosition} from "../../../shared/model/employee-position";
+import {EmployeePositionService} from "../../../shared/services/employee-position.service";
+import {UtilityService} from "../../../shared/services/utility.service";
 
 @Component({
     moduleId: module.id,

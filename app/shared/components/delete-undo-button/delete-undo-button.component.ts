@@ -1,18 +1,10 @@
 import {Component, EventEmitter, Output} from "@angular/core";
-// import {TimerWrapper} from "@angular/platform-browser-dynamic/src/facade/async";
 
 @Component({
-
+    moduleId: module.id,
     selector: 'delete-undo-button',
-    template: `
-            <button *ngIf="!showUndo" class="btn btn-default btn-sm" (click)="deletedPressed()">
-                <span class="glyphicon glyphicon-trash" aria-hidden="false"></span> del
-            </button>
-            
-            <button *ngIf="showUndo" class="btn btn-default btn-sm" (click)="undoPressed()">
-               <span class="glyphicon glyphicon-share-alt" aria-hidden="false"></span> undo
-            </button> 
-    `
+    templateUrl: 'delete-undo-button.component.html',
+    styleUrls: ['delete-undo-button.component.css']
 })
 export class DeleteUndoButtonComponent {
 

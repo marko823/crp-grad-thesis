@@ -1,0 +1,11 @@
+<div class="col-md-10 scrollable-content">
+
+    <h3>Projects</h3>
+    <br>
+    <info-box [infoBoxShown]="showPageInfo()" [infoMessage]="pageInfo"
+              (removeInfo)="removePageInfo()"></info-box>
+    <br>
+    <project-form></project-form>
+    <projects-table></projects-table>
+
+</div>

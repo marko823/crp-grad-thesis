@@ -1,7 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Project} from "../../../shared/model/project";
 import {ProjectService} from "../../../shared/services/project.service";
-// import {COMMON_DIRECTIVES} from "@angular/common";
 
 @Component({
     moduleId: module.id,

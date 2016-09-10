@@ -26,9 +26,6 @@ import {EmployeeFormComponent} from "./employee/components/employee-form/employe
 import {EmployeeDetailComponent} from "./employee/components/employee-detail/employee-detail.component";
 import {EmployeeService} from "./shared/services/employee.service";
 import {EmployeePositionService} from "./shared/services/employee-position.service";
-import {EmployeePositionFormComponent} from "./employee-position/components/employee-position-form.component";
-import {EmployeePositionsListComponent} from "./employee-position/components/employee-positions-list.component";
-import {EmployeePositionItemComponent} from "./employee-position/components/employee-position-item.component";
 import {UtilityService} from "./shared/services/utility.service";
 import {ScheduleModule} from "primeng/components/schedule/schedule";
 import {RequestDaysOffComponent} from "./request-days-off/request-days-off.component";
@@ -37,6 +34,8 @@ import {RequestDaysOffService} from "./shared/services/request-days-off.service"
 import {PendingRequestsComponent} from "./pending-requests/pending-requests.component";
 import {PendingRequestsTableComponent} from "./pending-requests/pending-requests-table/pending-requests-table.component";
 import {DashboardCardComponent} from "./dashboard/components/dashboard-card/dashboard-card.component";
+import {EmployeePositionFormComponent} from "./employee-position/components/empoloyee-position-form/employee-position-form.component";
+import {EmployeePositionsListComponent} from "./employee-position/components/employee-positions-list/employee-positions-list.component";
 
 
 @NgModule({
@@ -67,7 +66,6 @@ import {DashboardCardComponent} from "./dashboard/components/dashboard-card/dash
         EmployeeDetailComponent,
         EmployeePositionFormComponent,
         EmployeePositionsListComponent,
-        EmployeePositionItemComponent,
         RequestDaysOffFormComponent,
         RequestDaysOffComponent,
         PendingRequestsTableComponent,

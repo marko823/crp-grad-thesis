@@ -5,14 +5,7 @@ import {PageComponent} from "../../shared/components/page/page.component";
 @Component({
     moduleId: module.id,
     selector: 'employee-position',
-    template: `
-                <h3>Employee positions</h3>
-                <br>
-                <info-box [infoBoxShown]="showPageInfo()" [infoMessage]="pageInfo" 
-                    (removeInfo)="removePageInfo()"></info-box>
-                <!--<employee-position-form></employee-position-form>-->
-                <employee-positions-list></employee-positions-list>
-`
+    templateUrl: 'employee-position.component.html'
 })
 
 export class EmployeePositionComponent extends PageComponent {

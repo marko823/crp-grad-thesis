@@ -1,15 +1,8 @@
-<div class="col-md-7">
+<div class="schedule-container col-md-7">
 
-    <div>
-
-        <h5 class="col-md-1inline">Employee: {{employee.fullName}}
-            <a style="float: right;" class="col-md-1inline" (click)="closeEmployeeDetailsHandler($event)">
-                <span class="glyphicon glyphicon-remove"></span>
-            </a></h5>
-        <h6 class="col-md-1inline">Position: {{employee.employeePosition.name}}</h6>
-
-
-    </div>
+    <a style="float: right;" class="col-md-1inline" (click)="closeEmployeeDetailsHandler($event)">
+        <span class="glyphicon glyphicon-remove"></span>
+    </a>
 
     <p-schedule [events]="employee.workingDaysMonth"></p-schedule>
 

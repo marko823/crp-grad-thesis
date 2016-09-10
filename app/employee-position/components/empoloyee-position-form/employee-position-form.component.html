@@ -1,6 +1,6 @@
 <div class="container">
 
-    <h4>Employee Position Form</h4>
+    <h3>Add Employee Position</h3>
 
     <form (ngSubmit)="onSubmit()" #employeePositionForm="ngForm">
         <div class="form-group">
@@ -13,8 +13,8 @@
 
         <hr>
 
-        <button type="button" class="btn btn-default" (click)="newEmployeePosition()" required>New Employee Position
-        </button>
+        <!--<button type="button" class="btn btn-default" (click)="newEmployeePosition()" required>New Employee Position-->
+        <!--</button>-->
         <button type="submit" class="btn btn-default" [disabled]="!employeePositionForm.valid" required>Submit</button>
 
     </form>

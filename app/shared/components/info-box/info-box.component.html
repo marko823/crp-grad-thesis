@@ -1,0 +1,13 @@
+<div *ngIf="infoBoxShown" class="bg-info">
+
+    <div class="col-md-1 inline">
+        <span class="glyphicon glyphicon-info-sign"></span>
+    </div>
+
+    <h5 class="info-msg col-md-10 inline">{{infoMessage}}</h5>
+
+    <a class="col-md-1 inline" (click)="removeInfoHandler()">
+        <span class="close-info glyphicon glyphicon-remove"></span>
+    </a>
+
+</div>

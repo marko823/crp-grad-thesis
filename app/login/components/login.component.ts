@@ -1,11 +1,9 @@
 import {Component} from "@angular/core";
 
 @Component({
+    moduleId: module.id,
     selector: 'login',
-    template: `
-        <h3>Login</h3>
-        <login-form></login-form>
-    `
+    templateUrl: 'login.component.html'
 })
 export class LoginComponent {
 

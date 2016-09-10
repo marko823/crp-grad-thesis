@@ -1,0 +1,29 @@
+.nav-pills {
+    background: #222;
+    height: 100%;
+}
+
+.nav {
+    padding-right: 0px;
+}
+
+.nav > li > a {
+    color: whitesmoke;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+    text-decoration: none;
+    background-color: black;
+}
+
+.navbar {
+    background: #222;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    padding: 0px;
+}
+
+.navbar > a {
+    margin-right: 10px;
+}

@@ -7,6 +7,7 @@ import {EmployeeService} from "../../shared/services/employee.service";
     moduleId: module.id,
     selector: 'employee',
     template: `
+                <div class="col-md-10 scrollable-content">
                 <h3>Employees</h3>
                 <br>
                 <info-box 
@@ -20,6 +21,7 @@ import {EmployeeService} from "../../shared/services/employee.service";
                 <employee-detail *ngIf="showEmployeeDetails" 
                     [employee]="employeeDetails" 
                     (closeEmployeeDetails)="closeEmployeeDetail($event)"></employee-detail>
+                    </div>
                 
 `
 })

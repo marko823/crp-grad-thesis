@@ -8,32 +8,19 @@ import {AuthService} from "./shared/services/auth.service";
 
 
 @Component({
+    moduleId: module.id,
     selector: 'my-app',
-    template: `
-                <nav class="navbar navbar-inverse">
-                    <a class="navbar-brand" [routerLink]="['/dashboard']">Dashboard</a>
-                    <a class="navbar-brand" [routerLink]="['/project']">Projects</a>
-                    <a class="navbar-brand" [routerLink]="['/employee']">Employees</a>
-                    <a class="navbar-brand" [routerLink]="['/employee-position']">Employee Position</a>
-                    <a class="navbar-brand" [routerLink]="['/request-days-off']">Request days off</a>
-                    <a class="navbar-brand" [routerLink]="['/pending-requests']">Pending requests</a>
-                    <a *ngIf="auth.authenticated()" class="navbar-brand navbar-right" (click)="auth.logout()">Logout</a>
-                </nav>
-               <router-outlet></router-outlet>
-               `,
-    // directives: [ROUTER_DIRECTIVES],
-    // providers: [
-    //     EmployeePositionService,
-    //     EmployeeService,
-    //     ProjectService,
-    //     UtilityService,
-    //     GlobalService
-    // ]
+    styleUrls: ['app.component.css'],
+    templateUrl: 'app.component.html'
 })
 
 export class AppComponent {
 
     constructor(private auth:AuthService) {
+    }
+
+    handleLogout() {
+        this.auth.logout();
     }
 
 }

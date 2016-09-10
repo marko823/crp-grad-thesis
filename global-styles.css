@@ -1,0 +1,7 @@
+
+.scrollable-content {
+    padding: 0;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 100%
+}

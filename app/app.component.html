@@ -1,0 +1,25 @@
+<nav class="navbar navbar-inverse">
+
+    <a class="navbar-brand navbar-right"
+       *ngIf="auth.authenticated()"
+       (click)="handleLogout()">Logout
+        <span class="glyphicon glyphicon-log-out"></span>
+    </a>
+    <a class="navbar-brand navbar-right"
+       *ngIf="!auth.authenticated()"
+       [routerLink]="['/login']">Login
+        <span class="glyphicon glyphicon-log-in"></span>
+    </a>
+
+</nav>
+
+<ul class="nav nav-pills nav-stacked col-md-2">
+    <li><a [routerLink]="['/dashboard']">Dashboard</a></li>
+    <li><a [routerLink]="['/project']">Projects</a></li>
+    <li><a [routerLink]="['/employee']">Employees</a></li>
+    <li><a [routerLink]="['/employee-position']">Employee Position</a></li>
+    <li><a [routerLink]="['/request-days-off']">Request days off</a></li>
+    <li><a [routerLink]="['/pending-requests']">Pending requests</a></li>
+</ul>
+
+<router-outlet></router-outlet>

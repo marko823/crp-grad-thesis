@@ -5,14 +5,7 @@ import {PageComponent} from "../../shared/components/page/page.component";
 @Component({
     moduleId: module.id,
     selector: 'project',
-    template: `
-                <h3>Projects</h3>
-                <br>
-                <info-box [infoBoxShown]="showPageInfo()" [infoMessage]="pageInfo" 
-                    (removeInfo)="removePageInfo()"></info-box>
-                <project-form></project-form>
-                <projects-table></projects-table>
-`
+    templateUrl: 'project.component.html'
 })
 
 export class ProjectComponent extends PageComponent {

@@ -1,0 +1,7 @@
+<button *ngIf="!showUndo" class="del-undo-btn btn btn-default btn-sm" (click)="deletedPressed()">
+    <span class="glyphicon glyphicon-trash" aria-hidden="false"></span>
+</button>
+
+<button *ngIf="showUndo" class=" del-undo-btn btn btn-default btn-sm" (click)="undoPressed()">
+    <span class="glyphicon glyphicon-share-alt" aria-hidden="false"></span>
+</button>

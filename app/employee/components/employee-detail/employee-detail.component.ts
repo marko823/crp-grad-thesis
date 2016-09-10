@@ -4,7 +4,8 @@ import {Employee} from "../../../shared/model/employee";
 @Component({
     moduleId: module.id,
     selector: 'employee-detail',
-    templateUrl: 'employee-detail.component.html'
+    templateUrl: 'employee-detail.component.html',
+    styleUrls: ['employee-detail.component.css']
 })
 export class EmployeeDetailComponent {
 
