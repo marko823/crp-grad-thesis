@@ -4,7 +4,7 @@ import {EmployeePosition} from "../../../shared/model/employee-position";
 import {EmployeeService} from "../../../shared/services/employee.service";
 import {EmployeePositionService} from "../../../shared/services/employee-position.service";
 import {UtilityService} from "../../../shared/services/utility.service";
-import {EMPLOYEEPOSITIONS} from "../../../shared/model/mock-employee-positions";
+import {SelectItem} from "primeng/primeng";
 
 @Component({
     moduleId: module.id,
@@ -15,14 +15,14 @@ import {EMPLOYEEPOSITIONS} from "../../../shared/model/mock-employee-positions";
 export class EmployeeFormComponent implements OnInit {
 
     @Output()
-    employeeAdded = new EventEmitter();    
+    employeeAdded = new EventEmitter();
 
     model:Employee;
 
     employees;
 
     employeePosition:Array<EmployeePosition>;
-    employeePositionItems:Array<any>;
+    employeePositionItems:SelectItem[];
 
 
     submitted = false;
@@ -38,28 +38,18 @@ export class EmployeeFormComponent implements OnInit {
         this.employeePosition = this.employeePositionService.getEmployeePositions();
         this.employeePositionItems = this.utilityService.mapEmployeePositionsToSelectItems(this.employeePosition);
         this.employees = this.employeeService.getEmployees();
+
+        this.model.employeePosition = this.employeePositionItems[0].value;
     }
 
     onSubmit() {
-
-        //todo
-        //find rc5 compatible select library
-
-        // faking emp position
-        this.model.employeePosition.id = EMPLOYEEPOSITIONS[0].id;
-        this.model.employeePosition.name = EMPLOYEEPOSITIONS[1].name;
-
         this.employeeService.addEmployee(this.model);
         this.employeeAdded.emit(this.model);
         this.submitted = true;
         this.model = this.utilityService.emptyEmployee();
+        this.model.employeePosition = this.employeePositionItems[0].value;
         this.active = false;
         setTimeout(()=>this.active = true, 0);
-    }
-
-    public selected(value:any):void {
-        this.model.employeePosition.id = value.id;
-        this.model.employeePosition.name = value.text;
     }
 
     newEmployee() {

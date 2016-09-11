@@ -37,6 +37,7 @@ import {DashboardCardComponent} from "./dashboard/components/dashboard-card/dash
 import {EmployeePositionFormComponent} from "./employee-position/components/empoloyee-position-form/employee-position-form.component";
 import {EmployeePositionsListComponent} from "./employee-position/components/employee-positions-list/employee-positions-list.component";
 import {EmployeeScheduleComponent} from "./employee-schedule/employee-schedule.component";
+import {DropdownModule} from "primeng/primeng";
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import {EmployeeScheduleComponent} from "./employee-schedule/employee-schedule.c
         BrowserModule,
         FormsModule,
         ScheduleModule,
+        DropdownModule,
         routing
     ],
     declarations: [
@@ -58,10 +60,8 @@ import {EmployeeScheduleComponent} from "./employee-schedule/employee-schedule.c
         ProjectFormComponent,
         ProjectsTableComponent,
         HighlightDirective,
-        // MultipleSelectionComponent,
         DeleteUndoButtonComponent,
         SortButtonsComponent,
-        // SelectedItemComponent
         EmployeeFormComponent,
         EmployeesTableComponent,
         EmployeeDetailComponent,
@@ -73,7 +73,6 @@ import {EmployeeScheduleComponent} from "./employee-schedule/employee-schedule.c
         PendingRequestsComponent,
         DashboardCardComponent,
         EmployeeScheduleComponent
-        // SELECT_DIRECTIVES
 
     ],
     bootstrap: [AppComponent],

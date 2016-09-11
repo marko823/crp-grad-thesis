@@ -6,6 +6,8 @@ import {Employee} from "../model/employee";
 import {Project} from "../model/project";
 import {EmployeePosition} from "../model/employee-position";
 import {EMPLOYEES} from "../model/mock-employees";
+import {SelectItem} from "primeng/primeng";
+
 import Immutable = require('immutable');
 
 @Injectable()
@@ -22,9 +24,9 @@ export class UtilityService {
 
     mapEmployeePositionsToSelectItems(employeePositions:Array<EmployeePosition>) {
 
-        var items:Array<any> = [];
+        var items:Array<SelectItem> = [];
         for (var employeePosition of employeePositions) {
-            items.push({id: employeePosition.id, text: employeePosition.name});
+            items.push({label: employeePosition.name, value: employeePosition});
         }
         return items;
 

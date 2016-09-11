@@ -26,9 +26,7 @@
             'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
 
             'angular2-jwt': 'node_modules/angular2-jwt/angular2-jwt.js',
-            'ng2-select': 'node_modules/ng2-select',
             'ng2-bootstrap': 'node_modules/ng2-bootstrap',
-            // 'ng2-calendar': 'node_modules/ng2-calendar',
             'moment': 'node_modules/moment/moment.js',
             'immutable': 'node_modules/immutable/dist/immutable.js',
             'primeng': 'node_modules/primeng'
@@ -49,9 +47,7 @@
 
             'angular2-jwt': {defaultExtension: 'js'},
             // 'rxjs': {defaultExtension: 'js'},
-            'ng2-select': {defaultExtension: 'js'},
             'ng2-bootstrap': {defaultExtension: 'js'},
-            // 'ng2-calendar': {defaultExtension: 'js'},
             'moment': {defaultExtension: 'js'},
             'primeng': {defaultExtension: 'js'}
         }
