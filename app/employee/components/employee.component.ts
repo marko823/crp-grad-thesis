@@ -61,7 +61,9 @@ export class EmployeeComponent extends PageComponent {
     }
 
     closeEmployeeDetail(event:any) {
-        this.showEmployeeDetails = false;
+        if (event == "" || event == this.employeeDetails.id) {
+            this.showEmployeeDetails = false;
+        }
     }
 
 

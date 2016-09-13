@@ -35,7 +35,7 @@ export class EmployeesTableComponent implements OnInit {
 
     removeEmployee(id:number) {
         this.employees = this.employeeService.removeEmployee(id);
-        this.closeEmployeeDetails.emit(undefined);
+        this.closeEmployeeDetails.emit(id);
     }
 
     showScheduleForEmployee(employeeId:number) {
