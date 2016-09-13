@@ -3,7 +3,6 @@ import {Project} from "../../../shared/model/project";
 import {ProjectService} from "../../../shared/services/project.service";
 import {EmployeeService} from "../../../shared/services/employee.service";
 import {UtilityService} from "../../../shared/services/utility.service";
-import {EMPLOYEES} from "../../../shared/model/mock-employees";
 
 @Component({
     moduleId: module.id,
@@ -31,11 +30,6 @@ export class ProjectFormComponent {
     }
 
     onSubmit() {
-
-        //todo
-        //find rc5 compatible library for select
-        this.model.employees = [EMPLOYEES[0], EMPLOYEES[1]];
-        
         this.projectService.addProject(this.model);
         this.model = this.utilityService.emptyProject();
         this.active = false;
@@ -46,11 +40,5 @@ export class ProjectFormComponent {
         this.model = this.utilityService.emptyProject();
         this.active = false;
         setTimeout(()=>this.active = true, 0);
-    }
-
-    updateEmployees(employees:any) {
-
-        this.employees = this.utilityService.buildEmployeeArray(employees.toArray());
-
     }
 }

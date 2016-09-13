@@ -37,7 +37,7 @@ import {DashboardCardComponent} from "./dashboard/components/dashboard-card/dash
 import {EmployeePositionFormComponent} from "./employee-position/components/empoloyee-position-form/employee-position-form.component";
 import {EmployeePositionsListComponent} from "./employee-position/components/employee-positions-list/employee-positions-list.component";
 import {EmployeeScheduleComponent} from "./employee-schedule/employee-schedule.component";
-import {DropdownModule} from "primeng/primeng";
+import {DropdownModule, MultiSelectModule} from "primeng/primeng";
 
 
 @NgModule({
@@ -46,6 +46,7 @@ import {DropdownModule} from "primeng/primeng";
         FormsModule,
         ScheduleModule,
         DropdownModule,
+        MultiSelectModule,
         routing
     ],
     declarations: [

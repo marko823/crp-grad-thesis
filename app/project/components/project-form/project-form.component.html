@@ -34,8 +34,10 @@
 
         <div class="form-group">
 
-            <!--<multiple-selection [itemsName]="'Employees'" [items]="employeeItems"-->
-            <!--(changeSelectedItems)="updateEmployees($event)"></multiple-selection>-->
+            <p-multiSelect name="employeeItems"
+                           [style]="{'width':'100%'}"
+                           [options]="employeeItems"
+                           [(ngModel)]="model.employees"></p-multiSelect>
 
         </div>
 

@@ -14,10 +14,10 @@ import Immutable = require('immutable');
 export class UtilityService {
 
     mapEmployeesToSelectItems(employees:Array<Employee>) {
-        var items = Immutable.fromJS([]);
+        var items:Array<SelectItem> = [];
         for (var i = 0; i < employees.length; i++) {
-            let selectItemObj = {id: employees[i].id, text: employees[i].fullName};
-            items = items.push(selectItemObj);
+            let selectItemObj = {label: employees[i].fullName, value: employees[i]};
+            items.push(selectItemObj);
         }
         return items;
     }
@@ -26,7 +26,8 @@ export class UtilityService {
 
         var items:Array<SelectItem> = [];
         for (var employeePosition of employeePositions) {
-            items.push({label: employeePosition.name, value: employeePosition});
+            let selectItemObj = {label: employeePosition.name, value: employeePosition};
+            items.push(selectItemObj);
         }
         return items;
 
