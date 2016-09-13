@@ -4,7 +4,8 @@ import {EmployeeService} from "../../../shared/services/employee.service";
 @Component({
     moduleId: module.id,
     selector: 'employees-table',
-    templateUrl: 'employees-table.component.html'
+    templateUrl: 'employees-table.component.html',
+    styleUrls: ['employees-table.component.css']
 })
 export class EmployeesTableComponent implements OnInit {
 
@@ -12,6 +13,9 @@ export class EmployeesTableComponent implements OnInit {
 
     @Output()
     showDetailsEmployee = new EventEmitter();
+
+    @Output()
+    closeEmployeeDetails = new EventEmitter();
 
 
     constructor(private employeeService:EmployeeService) {
@@ -31,6 +35,7 @@ export class EmployeesTableComponent implements OnInit {
 
     removeEmployee(id:number) {
         this.employees = this.employeeService.removeEmployee(id);
+        this.closeEmployeeDetails.emit(undefined);
     }
 
     showScheduleForEmployee(employeeId:number) {

@@ -15,10 +15,10 @@
         </thead>
         <tbody>
 
-        <tr *ngFor="let employee of employees; let i = index" (click)="showScheduleForEmployee(employee.id)">
+        <tr *ngFor="let employee of employees; let i = index">
 
-            <td>{{employee.fullName}}</td>
-            <td>{{employee.employeePosition.name}}</td>
+            <td (click)="showScheduleForEmployee(employee.id)">{{employee.fullName}}</td>
+            <td (click)="showScheduleForEmployee(employee.id)">{{employee.employeePosition.name}}</td>
             <td>
                 <delete-undo-button (proceedDeletionEmitter)="removeEmployee(employee.id)"></delete-undo-button>
             </td>

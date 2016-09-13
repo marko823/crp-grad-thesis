@@ -17,6 +17,7 @@ import {EmployeeService} from "../../shared/services/employee.service";
                 <employee-form 
                     (employeeAdded)="addEmployee($event)"></employee-form>
                 <employees-table #employeeTable 
+                    (closeEmployeeDetails)="closeEmployeeDetail($event)"
                     (showDetailsEmployee)="showEmployeeDetail($event)"></employees-table>
                 <employee-detail *ngIf="showEmployeeDetails" 
                     [employee]="employeeDetails" 
