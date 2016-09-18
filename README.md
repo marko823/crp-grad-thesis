@@ -1,90 +1,51 @@
 # crp-grad-thesis
 
-Angular 2 application for company resource planning
+An Angular 2 application which represents a basic ERP module for small/medium buisness. This module is primarly intended to be used by IT companies since there is a projects specific feature.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+In order to have the fully functional module up and running on your local machine follow the steps in Installing section.
 
 ### Prerequisities
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+node >= v4.x.x
+npm  >= v3.x.x
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+The steps to get the development env up & running
 
-Stay what the step will be
-
+1. clone this repo on your local machine
 ```
-Give the example
+git clone https://github.com/marko823/crp-grad-thesis.git crp-module
+cd crp-module
 ```
-
-And repeat
-
+2. discard all git related files
+``` 
+rm -rf .git  # non-Windows
+rd .git /S/Q # windows
 ```
-until finished
+3. install packages listed under package.json
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+npm install
 ```
-Give an example
+4. transpile the .ts files running the .ts compiler 
+```
+npm run tsc
+npm run tsc:w - watch mode
+```
+5. start the application (runs the lite-server, a light-weight, static file server)
+```
+npm run lite
 ```
 
-### And coding style tests
+NOTE: the current version of the module is base on Angular 2.0.0-rc.6 & will soon be migrated to the 2.0.0
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* Dropwizard - Bla bla bla
-* Maven - Maybe
-* Atom - ergaerga
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Martina Kostovska** - *Initial work* - [PurpleBooth](https://github.com/marko823)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-
-
-
