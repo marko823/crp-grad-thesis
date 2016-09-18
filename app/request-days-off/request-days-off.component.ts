@@ -1,13 +1,9 @@
 import {Component} from "@angular/core";
 
 @Component({
+    moduleId: module.id,
     selector: 'request-days-off',
-    template: `
-        <div class="col-md-10 scrollable-content">
-        <h3>Request Days Off</h3>
-        <request-days-off-form></request-days-off-form>
-        </div>
-    `
+    templateUrl: 'request-days-off.component.html'
 })
 export class RequestDaysOffComponent {
 

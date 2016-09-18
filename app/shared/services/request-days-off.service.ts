@@ -18,7 +18,15 @@ export class RequestDaysOffService {
     }
 
     getPendingRequests() {
-        return Array.from(this.pendingRequests.values());
+        let result = Array.from(this.pendingRequests.values());
+        return result.filter(request => {
+            return request.approved == false;
+        });
+    }
+
+    getApprovedRequestForEmployee(employeeId:number) {
+        let employeeRequest = this.pendingRequests.get(employeeId);
+        return (employeeRequest && employeeRequest.approved) ? employeeRequest : undefined;
     }
 
     removeRequest(employeeId:number) {
@@ -36,7 +44,8 @@ export class RequestDaysOffService {
             }
         }
 
-        this.removeRequest(request.employeeId);
+        request.approved = true;
+
     }
 
     findMatch(workDaysOff:Array<WorkDay>, workDay:WorkDay):boolean {

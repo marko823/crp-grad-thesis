@@ -1,0 +1,6 @@
+<div *ngIf="showInfo" class="jumbotron col-md-4">
+    <h5>Your request has been approved</h5>
+    <h5>From: {{requestDayOff.fromDate | date: 'shortDate'}}</h5>
+    <h5>To: {{requestDayOff.toDate | date: 'shortDate'}}</h5>
+    <p><a class="btn btn-primary btn-md" (click)="dismiss()">Dismiss</a></p>
+</div>

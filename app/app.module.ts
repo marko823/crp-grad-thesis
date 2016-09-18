@@ -38,6 +38,7 @@ import {EmployeePositionFormComponent} from "./employee-position/components/empo
 import {EmployeePositionsListComponent} from "./employee-position/components/employee-positions-list/employee-positions-list.component";
 import {EmployeeScheduleComponent} from "./employee-schedule/employee-schedule.component";
 import {DropdownModule, MultiSelectModule} from "primeng/primeng";
+import {ApprovedRequestInfoComponent} from "./request-days-off/approved-request-info/approved-request-info.component";
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import {DropdownModule, MultiSelectModule} from "primeng/primeng";
         PendingRequestsTableComponent,
         PendingRequestsComponent,
         DashboardCardComponent,
-        EmployeeScheduleComponent
+        EmployeeScheduleComponent,
+        ApprovedRequestInfoComponent
 
     ],
     bootstrap: [AppComponent],
