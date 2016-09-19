@@ -17,7 +17,6 @@ import {EmployeeScheduleComponent} from "./employee-schedule/employee-schedule.c
 
 const appRoutes:Routes = [
     {path: 'login', component: LoginComponent, canActivate: [UnauthenticatedUserGuard]},
-    {path: '', component: DashboardComponent, canActivate: [AuthenticatedUserGuard]},
     {path: 'dashboard', component: DashboardComponent},
     {path: 'project', component: ProjectComponent, canActivate: [AuthenticatedAdminUserGuard]},
     {path: 'employee', component: EmployeeComponent, canActivate: [AuthenticatedAdminUserGuard]},
@@ -25,7 +24,7 @@ const appRoutes:Routes = [
     {path: 'pending-requests', component: PendingRequestsComponent, canActivate: [AuthenticatedAdminUserGuard]},
     {path: 'request-days-off', component: RequestDaysOffComponent, canActivate: [AuthenticatedEmployeeUserGuard]},
     {path: 'employee-schedule', component: EmployeeScheduleComponent, canActivate: [AuthenticatedEmployeeUserGuard]},
-    {path: "**", redirectTo: "login"}
+    {path: '', redirectTo: "login", pathMatch: 'full'}
 ];
 
 export const appRoutingProviders:any[] = [

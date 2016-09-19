@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {Router} from "@angular/router";
 import {EmployeeService} from "./employee.service";
 import {GlobalService} from "./global.service";
+import {USERS} from "../model/mock-users";
 
 
 @Injectable()
@@ -10,50 +11,37 @@ export class AuthService {
     errorMsg:string;
 
     constructor(private router:Router,
-                // @Inject(AUTH_CONFIG) private auth,
                 private employeeService:EmployeeService,
                 private globalService:GlobalService) {
-
-        /*
-         var result = this.auth.parseHash(window.location.hash);
-
-         if (result && result.idToken) {
-         localStorage.setItem('id_token', result.idToken);
-         this.router.navigate(['/dashboard']);
-         } else if (result && result.error) {
-         alert('error: ' + result.error);
-         }
-         */
-
+        this.errorMsg = "";
     }
 
     public login(email, password) {
-
-        this.storeUserId(email);
-
-        /*
-         this.auth.login({
-         connection: 'Username-Password-Authentication',
-         responseType: 'token',
-         email: email,
-         password: password,
-         }, function (err) {
-         if (err) {
-         alert("something went wrong: " + err.message);
-         localStorage.removeItem('id_user');
-         }
-         */
-    };
-
-    public authenticated() {
-        // return tokenNotExpired();
-        return this.getLoggedInUserId() != undefined;
+        if (this.checkUser(email, password)) {
+            //admin
+            if (this.globalService.adminUser.email.trim() == email.trim()) {
+                this.handleSuccessfulLogin(this.globalService.adminUser.id.toString());
+            }
+            //employee
+            else if (this.employeeService.findEmployeeId(email) != undefined) {
+                this.handleSuccessfulLogin(this.employeeService.findEmployeeId(email));
+            }
+            else {
+                this.errorMsg = "Try again!";
+            }
+        }
+        else {
+            this.errorMsg = "Try again!";
+        }
     };
 
     public logout() {
-        // Remove tokens from localStorage
         localStorage.removeItem('id_user');
         this.router.navigate(['/login']);
+    };
+
+    public authenticated() {
+        return this.getLoggedInUserId() != undefined;
     };
 
     getLoggedInUserId() {
@@ -61,36 +49,21 @@ export class AuthService {
     }
 
     isAdminLoggedIn() {
-        let loggedInUserId = this.getLoggedInUserId();
-        let adminUserId = this.globalService.adminUser.id;
-
-        return loggedInUserId === adminUserId.toString();
+        return this.getLoggedInUserId() === this.globalService.adminUser.id.toString();
     }
 
     isEmployeeLoggedIn() {
-        let loggedInUserId = this.getLoggedInUserId();
-        let adminUserId = this.globalService.adminUser.id;
-
-        return this.authenticated() && loggedInUserId != adminUserId.toString();
+        return this.authenticated() && this.getLoggedInUserId() != this.globalService.adminUser.id.toString();
     }
 
-    private storeUserId(email:string) {
+    private checkUser(email, password):boolean {
+        let userPassword = USERS.get(email);
+        return userPassword != undefined && userPassword == password;
+    }
 
-        this.errorMsg = "An error occurred while logging, try again";
-        //admin
-        if (this.globalService.adminUser.email.trim() == email.trim()) {
-            localStorage.setItem('id_user', this.globalService.adminUser.id.toString());
-            this.errorMsg = "User " + email + "successfully logged in";
-        }
-        else {
-            // employees
-            let employeeId = this.employeeService.findEmployeeId(email);
-            if (employeeId != undefined) {
-                localStorage.setItem('id_user', employeeId.toString());
-                this.errorMsg = "User " + email + "successfully logged in";
-            }
-        }
-
+    private handleSuccessfulLogin(userId:string) {
+        localStorage.setItem('id_user', userId);
+        this.router.navigate(["dashboard"]);
     }
 
     getErrorMsg() {
