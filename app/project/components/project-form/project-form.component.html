@@ -1,7 +1,7 @@
 <div class="col-md-4">
 
     <h3>Project Form</h3>
-    <form (ngSubmit)="onSubmit()" #projectForm="ngForm">
+    <form (ngSubmit)="onSubmit(realBeginDateRef.className, realEndDateRef.className)" #projectForm="ngForm">
 
         <div class="form-group">
             <label for="name">Name</label>
@@ -11,24 +11,24 @@
 
         <div class="form-group">
             <label for="predictedBeginDate">Predicted Begin Date</label>
-            <input id="predictedBeginDate" type="date" class="form-control" required
+            <input id="predictedBeginDate" type="date" class="form-control date" required
                    [(ngModel)]="model.predictedBeginDate" name="predictedBeginDate">
         </div>
 
         <div class="form-group">
             <label for="predictedEndDate">Predicted End Date</label>
-            <input id="predictedEndDate" type="date" class="form-control" required
+            <input id="predictedEndDate" type="date" class="form-control date" required
                    [(ngModel)]="model.predictedEndDate" name="predictedEndDate">
         </div>
 
         <div class="form-group">
             <label for="realBeginDate">Real Begin Date</label>
-            <input id="realBeginDate" type="date" class="form-control" required
+            <input id="realBeginDate" type="date" class="form-control" #realBeginDateRef
                    [(ngModel)]="model.realBeginDate" name="realBeginDate">
         </div>
         <div class="form-group">
             <label for="realEndDate">Real End Date</label>
-            <input id="realEndDate" type="date" class="form-control" required
+            <input id="realEndDate" type="date" class="form-control" #realEndDateRef
                    [(ngModel)]="model.realEndDate" name="realEndDate">
         </div>
 
@@ -43,7 +43,7 @@
 
         <hr>
 
-        <button type="button" class="btn btn-default" (click)="newProject()" required>New Project</button>
+        <button type="button" class="btn btn-default" (click)="newProject()" required>Clear form</button>
         <button type="submit" class="btn btn-default" [disabled]="!projectForm.valid" required>Submit</button>
 
         <hr>

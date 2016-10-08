@@ -29,11 +29,24 @@ export class ProjectFormComponent {
         this.projects = this.projectService.getProjects();
     }
 
-    onSubmit() {
+    onSubmit(beginDateClasses: string, endDateClasses: string) {
+
+        this.validateOptionalFields(beginDateClasses, endDateClasses);
+
         this.projectService.addProject(this.model);
         this.model = this.utilityService.emptyProject();
         this.active = false;
         setTimeout(()=>this.active = true, 0);
+    }
+
+    private validateOptionalFields(beginDateClasses: string, endDateClasses: string){
+
+        if(beginDateClasses.includes("ng-pristine")){
+            this.model.realBeginDate = undefined;
+        }
+        if(endDateClasses.includes("ng-pristine")){
+            this.model.realEndDate = undefined;
+        }
     }
 
     newProject() {
