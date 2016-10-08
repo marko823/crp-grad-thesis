@@ -9,15 +9,15 @@ import {AuthService} from "../../../shared/services/auth.service";
 })
 export class LoginFormComponent {
 
+    errorMsg:string;
+
     constructor(private auth:AuthService) {
+        this.errorMsg = "";
     }
 
     login(email:string, password:string) {
         this.auth.login(email, password);
-    }
-
-    errorMsg() {
-        return this.auth.getErrorMsg();
+        this.errorMsg = this.auth.getErrorMsg();
     }
 
 }

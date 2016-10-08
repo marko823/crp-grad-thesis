@@ -7,6 +7,6 @@ export var EMPLOYEE_DASHBOARD_CARDS = [
 
     new DashboardCard("Working schedule", "See the working schedule for the current month including public holidays " +
         "and approved days off.",
-        "/schedule", "../../../../images/schedule.jpg"),
+        "/employee-schedule", "../../../../images/schedule.jpg"),
 
 ];
