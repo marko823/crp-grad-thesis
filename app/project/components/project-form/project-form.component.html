@@ -1,7 +1,7 @@
-<div class="col-md-4">
+<div class="col-md-5">
 
     <h3>Project Form</h3>
-    <form (ngSubmit)="onSubmit(realBeginDateRef.className, realEndDateRef.className)" #projectForm="ngForm">
+    <form (ngSubmit)="onSubmit()" #projectForm="ngForm">
 
         <div class="form-group">
             <label for="name">Name</label>
@@ -12,23 +12,29 @@
         <div class="form-group">
             <label for="predictedBeginDate">Predicted Begin Date</label>
             <input id="predictedBeginDate" type="date" class="form-control date" required
-                   [(ngModel)]="model.predictedBeginDate" name="predictedBeginDate">
+                   (change)="handlePredictedBeginChange()"
+                   [style.border-left-color]="validPredictedBeginDate ? '#42A948' : '#a94442'"
+            [(ngModel)]="model.predictedBeginDate" name="predictedBeginDate">
         </div>
 
         <div class="form-group">
             <label for="predictedEndDate">Predicted End Date</label>
             <input id="predictedEndDate" type="date" class="form-control date" required
+                   (change)="handlePredictedEndChange()"
+                   [style.border-left-color]="validPredictedEndDate ? '#42A948' : '#a94442'"
                    [(ngModel)]="model.predictedEndDate" name="predictedEndDate">
         </div>
 
         <div class="form-group">
             <label for="realBeginDate">Real Begin Date</label>
-            <input id="realBeginDate" type="date" class="form-control" #realBeginDateRef
+            <input id="realBeginDate" type="date" class="form-control"
+                   (change)="handleRealBeginChange()"
                    [(ngModel)]="model.realBeginDate" name="realBeginDate">
         </div>
         <div class="form-group">
             <label for="realEndDate">Real End Date</label>
-            <input id="realEndDate" type="date" class="form-control" #realEndDateRef
+            <input id="realEndDate" type="date" class="form-control"
+                   (change)="handleRealEndChange()"
                    [(ngModel)]="model.realEndDate" name="realEndDate">
         </div>
 

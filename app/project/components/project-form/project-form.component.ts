@@ -7,8 +7,7 @@ import {UtilityService} from "../../../shared/services/utility.service";
 @Component({
     moduleId: module.id,
     selector: 'project-form',
-    templateUrl: 'project-form.component.html',
-    styleUrls: ['project-form.component.css']
+    templateUrl: 'project-form.component.html'
 })
 export class ProjectFormComponent {
 
@@ -18,7 +17,10 @@ export class ProjectFormComponent {
 
     projects:Array<Project>;
 
-    active = true;
+    validPredictedBeginDate:boolean;
+    validPredictedEndDate:boolean;
+    validRealBeginDate:boolean;
+    validRealEndDate:boolean;
 
     constructor(private employeeService:EmployeeService,
                 private projectService:ProjectService,
@@ -27,31 +29,46 @@ export class ProjectFormComponent {
         this.employees = this.employeeService.getEmployees();
         this.employeeItems = this.utilityService.mapEmployeesToSelectItems(this.employees);
         this.projects = this.projectService.getProjects();
+
+        this.invalidPredictedDates();
     }
 
-    onSubmit(beginDateClasses: string, endDateClasses: string) {
-
-        this.validateOptionalFields(beginDateClasses, endDateClasses);
-
+    onSubmit() {
+        this.validateOptionalFields();
         this.projectService.addProject(this.model);
-        this.model = this.utilityService.emptyProject();
-        this.active = false;
-        setTimeout(()=>this.active = true, 0);
+        this.newProject();
     }
 
-    private validateOptionalFields(beginDateClasses: string, endDateClasses: string){
-
-        if(beginDateClasses.includes("ng-pristine")){
-            this.model.realBeginDate = undefined;
-        }
-        if(endDateClasses.includes("ng-pristine")){
-            this.model.realEndDate = undefined;
-        }
+    private validateOptionalFields() {
+        this.model.realBeginDate = this.validRealBeginDate ? this.model.realBeginDate : undefined;
+        this.model.realEndDate = this.validRealEndDate ? this.model.realEndDate : undefined;
     }
 
     newProject() {
         this.model = this.utilityService.emptyProject();
-        this.active = false;
-        setTimeout(()=>this.active = true, 0);
+        this.invalidPredictedDates();
+    }
+
+    handlePredictedBeginChange() {
+        this.validPredictedBeginDate = true;
+    }
+
+    handlePredictedEndChange() {
+        this.validPredictedEndDate = true;
+    }
+
+    handleRealBeginChange() {
+        this.validRealBeginDate = true;
+    }
+
+    handleRealEndChange() {
+        this.validRealEndDate = true;
+    }
+
+    invalidPredictedDates() {
+        this.validPredictedBeginDate = false;
+        this.validPredictedEndDate = false;
+        this.validRealBeginDate = false;
+        this.validRealEndDate = false;
     }
 }
