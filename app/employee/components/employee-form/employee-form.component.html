@@ -1,4 +1,4 @@
-<div class="container">
+<div class="col-md-5">
 
     <h3>Add employee</h3>
 
@@ -38,6 +38,8 @@
         <div class="form-group">
             <label for="dateOfEmployment">Date of Employment</label>
             <input id="dateOfEmployment" type="date" class="form-control" required
+                   (change)="handleDateOfEmploymentChange()"
+                   [style.border-left-color]="validDateOfEmployment ? '#42A948' : '#a94442'"
                    [(ngModel)]="model.dateOfEmployment" name="dateOfEmployment">
         </div>
 

@@ -24,9 +24,7 @@ export class EmployeeFormComponent implements OnInit {
     employeePosition:Array<EmployeePosition>;
     employeePositionItems:SelectItem[];
 
-
-    submitted = false;
-    active = true;
+    validDateOfEmployment:boolean;
 
     constructor(private employeeService:EmployeeService,
                 private employeePositionService:EmployeePositionService,
@@ -34,30 +32,25 @@ export class EmployeeFormComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.model = this.utilityService.emptyEmployee();
         this.employeePosition = this.employeePositionService.getEmployeePositions();
         this.employeePositionItems = this.utilityService.mapEmployeePositionsToSelectItems(this.employeePosition);
         this.employees = this.employeeService.getEmployees();
-
-        this.model.employeePosition = this.employeePositionItems[0].value;
+        this.newEmployee();
     }
 
     onSubmit() {
         this.employeeService.addEmployee(this.model);
         this.employeeAdded.emit(this.model);
-        this.submitted = true;
-        this.model = this.utilityService.emptyEmployee();
-        this.model.employeePosition = this.employeePositionItems[0].value;
-        this.active = false;
-        setTimeout(()=>this.active = true, 0);
+        this.newEmployee();
     }
 
     newEmployee() {
-
-        this.submitted = false;
         this.model = this.utilityService.emptyEmployee();
-        this.active = false;
-        setTimeout(()=>this.active = true, 0);
+        this.model.employeePosition = this.employeePositionItems[0].value;
+        this.validDateOfEmployment = false;
+    }
 
+    handleDateOfEmploymentChange() {
+        this.validDateOfEmployment = true;
     }
 }
