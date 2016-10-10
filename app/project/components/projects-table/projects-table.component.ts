@@ -30,4 +30,9 @@ export class ProjectsTableComponent implements OnInit {
         this.projectService.sortedProjects(event, "desc");
     }
 
+    validDate(date:Date) {
+        let newDate:Date = new Date(0);
+        return date.toDateString() != newDate.toDateString();
+    }
+
 }

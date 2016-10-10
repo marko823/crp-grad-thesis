@@ -27,8 +27,10 @@
         <tr *ngFor="let project of projects; let i = index">
 
             <td>{{project.name}}</td>
-            <td>{{project.realBeginDate | date}}</td>
-            <td>{{project.realEndDate | date}}</td>
+            <td *ngIf="validDate(project.realBeginDate)">{{project.realBeginDate | date}}</td>
+            <td *ngIf="!validDate(project.realBeginDate)"></td>
+            <td *ngIf="validDate(project.realEndDate)">{{project.realEndDate | date}}</td>
+            <td *ngIf="!validDate(project.realEndDate)"></td>
             <td>
                 <delete-undo-button (proceedDeletionEmitter)="removeProject(i)"></delete-undo-button>
             </td>

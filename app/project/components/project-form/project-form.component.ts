@@ -35,13 +35,21 @@ export class ProjectFormComponent {
 
     onSubmit() {
         this.validateOptionalFields();
+        this.convertDates();
         this.projectService.addProject(this.model);
         this.newProject();
     }
 
     private validateOptionalFields() {
-        this.model.realBeginDate = this.validRealBeginDate ? this.model.realBeginDate : undefined;
-        this.model.realEndDate = this.validRealEndDate ? this.model.realEndDate : undefined;
+        this.model.realBeginDate = this.validRealBeginDate ? this.model.realBeginDate : new Date(0);
+        this.model.realEndDate = this.validRealEndDate ? this.model.realEndDate : new Date(0);
+    }
+
+    private convertDates(){
+        this.model.predictedBeginDate = new Date(this.model.predictedBeginDate);
+        this.model.predictedEndDate = new Date(this.model.predictedEndDate);
+        this.model.realBeginDate = new Date(this.model.realBeginDate);
+        this.model.realEndDate = new Date(this.model.realEndDate);
     }
 
     newProject() {
