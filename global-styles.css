@@ -1,7 +1,11 @@
-
 .scrollable-content {
     padding: 0;
     overflow: scroll;
     overflow-x: hidden;
     height: 100%
+}
+
+span.fa.fa-fw.fa-caret-down {
+    margin-top: 7px !important;
+    margin-left: -5px !important;
 }

@@ -3,11 +3,12 @@
     <div class="col-md-3">
 
         <div style="padding-left: 10px;">
-            <h4 style="float: right">{{dashboardCardModel.title}}
-                <a><span class="glyphicon glyphicon-circle-arrow-right"
-                         style="margin-left: 10px"
-                         [routerLink]="[dashboardCardModel.link]"></span></a>
-            </h4>
+            <a [routerLink]="[dashboardCardModel.link]">
+                <h4 style="float: right">{{dashboardCardModel.title}}
+                <span class="glyphicon glyphicon-circle-arrow-right"
+                      style="margin-left: 10px"></span>
+                </h4>
+            </a>
             <h5 style="float: right; text-align: right ">{{dashboardCardModel.description}}</h5>
         </div>
 
