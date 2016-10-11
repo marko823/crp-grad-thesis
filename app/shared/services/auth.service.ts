@@ -16,7 +16,7 @@ export class AuthService {
         this.errorMsg = "";
     }
 
-    public login(email, password) {
+    login(email, password) {
         if (this.checkUser(email, password)) {
             //admin
             if (this.globalService.adminUser.email.trim() == email.trim()) {
@@ -35,12 +35,12 @@ export class AuthService {
         }
     };
 
-    public logout() {
+    logout() {
         localStorage.removeItem('id_user');
         this.router.navigate(['/login']);
     };
 
-    public authenticated() {
+    authenticated() {
         return this.getLoggedInUserId() != undefined;
     };
 
@@ -56,6 +56,10 @@ export class AuthService {
         return this.authenticated() && this.getLoggedInUserId() != this.globalService.adminUser.id.toString();
     }
 
+    getErrorMsg() {
+        return this.errorMsg;
+    }
+
     private checkUser(email, password):boolean {
         let userPassword = USERS.get(email);
         return userPassword != undefined && userPassword == password;
@@ -64,10 +68,6 @@ export class AuthService {
     private handleSuccessfulLogin(userId:string) {
         localStorage.setItem('id_user', userId);
         this.router.navigate(["dashboard"]);
-    }
-
-    getErrorMsg() {
-        return this.errorMsg;
     }
 
 }

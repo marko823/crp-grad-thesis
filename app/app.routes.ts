@@ -18,10 +18,12 @@ import {EmployeeScheduleComponent} from "./employee-schedule/employee-schedule.c
 const appRoutes:Routes = [
     {path: 'login', component: LoginComponent, canActivate: [UnauthenticatedUserGuard]},
     {path: 'dashboard', component: DashboardComponent},
+    //admin accessible only
     {path: 'project', component: ProjectComponent, canActivate: [AuthenticatedAdminUserGuard]},
     {path: 'employee', component: EmployeeComponent, canActivate: [AuthenticatedAdminUserGuard]},
     {path: 'employee-position', component: EmployeePositionComponent, canActivate: [AuthenticatedAdminUserGuard]},
     {path: 'pending-requests', component: PendingRequestsComponent, canActivate: [AuthenticatedAdminUserGuard]},
+    //employee accessible only
     {path: 'request-days-off', component: RequestDaysOffComponent, canActivate: [AuthenticatedEmployeeUserGuard]},
     {path: 'employee-schedule', component: EmployeeScheduleComponent, canActivate: [AuthenticatedEmployeeUserGuard]},
     {path: '', redirectTo: "login", pathMatch: 'full'}

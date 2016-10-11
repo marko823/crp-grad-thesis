@@ -15,12 +15,14 @@
 
 <ul class="nav nav-pills nav-stacked col-md-2">
     <li><a [routerLink]="['/dashboard']">Dashboard</a></li>
-    <li><a [routerLink]="['/project']">Projects</a></li>
-    <li><a [routerLink]="['/employee']">Employees</a></li>
-    <li><a [routerLink]="['/employee-position']">Employee Position</a></li>
-    <li><a [routerLink]="['/pending-requests']">Pending requests</a></li>
-    <li><a [routerLink]="['/request-days-off']">Request days off</a></li>
-    <li><a [routerLink]="['/employee-schedule']">Employee schedule</a></li>
+
+    <li *ngIf="auth.isAdminLoggedIn()"><a [routerLink]="['/project']">Projects</a></li>
+    <li *ngIf="auth.isAdminLoggedIn()"><a [routerLink]="['/employee']">Employees</a></li>
+    <li *ngIf="auth.isAdminLoggedIn()"><a [routerLink]="['/employee-position']">Employee Position</a></li>
+    <li *ngIf="auth.isAdminLoggedIn()"><a [routerLink]="['/pending-requests']">Pending requests</a></li>
+
+    <li *ngIf="auth.isEmployeeLoggedIn()"><a [routerLink]="['/request-days-off']">Request days off</a></li>
+    <li *ngIf="auth.isEmployeeLoggedIn()"><a [routerLink]="['/employee-schedule']">Employee schedule</a></li>
 </ul>
 
 <router-outlet></router-outlet>
